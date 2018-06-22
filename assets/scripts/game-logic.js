@@ -27,8 +27,11 @@ const inputValue = function (event) {
   // console.log($(this).attr('id'))
   const index = parseInt(($(this).attr('id')), 10)
   playerOne.push(index)
+  $(this).data("clicked", true)
+  console.log($(this).data())
   counter++
   // paramaters2()
+  preventDouble(event)
   paramaters(counter)
  // return counter++
   }
@@ -37,8 +40,13 @@ else {
   // console.log($(this).attr('id'))
   const index = parseInt(($(this).attr('id')), 10)
   playerTwo.push(index)
+  $(this).data("clicked", true)
+  console.log($(this).data())
   counter++
   // paramaters2()
+  // preventDouble(event)
+  preventDouble(event)
+
   paramaters(counter)
 // return counter++
 // console.log(counter)
@@ -53,6 +61,15 @@ const paramaters = function (counter) {
     // run score game function TODO
     }
   }
+
+  const preventDouble = function (event) {
+    if ($(".game-board").data() === true) {
+      $(".game-board[data-group='clicked']").off()
+      }
+    }
+
+
+
 
 // const paramaters2 = function () {
 //   if ($(".game-board").val() !== null) {

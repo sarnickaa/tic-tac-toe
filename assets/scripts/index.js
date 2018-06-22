@@ -11,6 +11,9 @@ const gameLogic = require('./game-logic.js')
 console.log('hi')
 
 $(() => {
+  // $("#1").click(function(){
+  //   gameLogic.inputValue
+  // })
   $("#1").click(gameLogic.inputValue)
   $("#2").click(gameLogic.inputValue)
   $("#3").click(gameLogic.inputValue)
