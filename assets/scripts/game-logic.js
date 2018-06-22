@@ -63,8 +63,9 @@ const paramaters = function (counter) {
   }
 
   const preventDouble = function (event) {
-    if ($(".game-board").data() === true) {
-      $(".game-board[data-group='clicked']").off()
+    if ($(event.target).data("clicked") === true) {
+      $(event.target).off()
+      // debugger
       }
     }
 
