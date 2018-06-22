@@ -9,7 +9,8 @@
 
 // set up a method to prevention paramaters:
 // player may not click a filled square
-// game total can not be 9 clicks - score game after 9th
+// game total can not be 9 clicks
+// score game after 9th
 //
 
 // set up WIN/LOSS conditions: scoring function
@@ -23,23 +24,23 @@ let counter = 1
 const inputValue = function (event) {
   if (counter % 2 !== 0) {
   $(this).val("X")
-  console.log($(this).attr('id'))
+  // console.log($(this).attr('id'))
   const index = parseInt(($(this).attr('id')), 10)
   playerOne.push(index)
   counter++
+  // paramaters2()
   paramaters(counter)
  // return counter++
- // paramaters(counter)
   }
 else {
   $(this).val("O")
-  console.log($(this).attr('id'))
+  // console.log($(this).attr('id'))
   const index = parseInt(($(this).attr('id')), 10)
   playerTwo.push(index)
   counter++
+  // paramaters2()
   paramaters(counter)
 // return counter++
-// paramaters(counter)
 // console.log(counter)
   }
 }
@@ -49,9 +50,16 @@ const paramaters = function (counter) {
   if (counter > 9) {
     $(".game-board").off('click')
     // console.log($(this))
+    // run score game function TODO
     }
   }
 
+// const paramaters2 = function () {
+//   if ($(".game-board").val() !== null) {
+//     $(".game-board").off('click')
+//   }
+// }
+// paramaters2()
 
 
 

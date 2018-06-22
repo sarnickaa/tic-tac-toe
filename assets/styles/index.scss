@@ -1,2 +1,49 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  margin: 0% 5%;
+}
+
+// .wrapper {
+//   display: flex;
+//   background-color: pink;
+//   flex-direction: column;
+// }
+
+.main-game {
+  background-color: yellow;
+  padding: 30px;
+}
+
+.header {
+  background-color: red;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.main-game {
+  display: block;
+  text-align: center;
+}
+
+.form {
+  margin: 0 auto;
+}
+
+input[type=text] {
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 2.5em;
+}
+// section {
+//   display: none;
+// } to toggle display later
