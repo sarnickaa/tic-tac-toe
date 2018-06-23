@@ -22,7 +22,8 @@ $(() => {
   $("#6").click(gameLogic.inputValue)
   $("#7").click(gameLogic.inputValue)
   $("#8").click(gameLogic.inputValue)
-  $("#9").click(gameLogic.inputValue)   //define function elsewhere
+  $("#9").click(gameLogic.inputValue)
+  $("#resetButton").click(gameLogic.resetForm)   //define function elsewhere
 })
 
 

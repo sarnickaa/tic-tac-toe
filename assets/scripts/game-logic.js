@@ -14,82 +14,61 @@
 
 // set up WIN/LOSS conditions: scoring function
 
-const playerOne = []
-const playerTwo = []
+let playerOne = []
+console.log(playerOne)
+let playerTwo = []
+console.log(playerTwo)
 let playerOneScore = 0
 console.log(playerOneScore)
 let playerTwoScore = 0
 console.log(playerTwoScore)
 let ties = 0
 let counter = 0
-const currentPlayer = 0
+console.log(counter)
 
 const inputValue = function (event) {
   if (counter % 2 === 0) {
-  // if (currentPlayer == 0) {
     $(this).val("X")
-    // console.log($(this).attr('id'))
     const index = parseInt(($(this).attr('id')), 10)
     playerOne.push(index)
-    console.log(playerOne)
     $(this).data("clicked", true)
-    console.log($(this).data())
     counter++
-    // paramaters2()
+    console.log(counter)
     preventDouble(event)
     paramaters(counter)
     let win = score(playerOne)
-    console.log(win)
+    console.log('player 1 has won ' + win)
     if (win) {
       playerOneScore++
     }
-    console.log(playerOneScore)
-    // scoreIncrement()
-    // debugger
-    // score()
-    // return counter++
+    console.log('player 1 has scored ' + playerOneScore)
   } else {
     $(this).val("O")
-    // console.log($(this).attr('id'))
     const index = parseInt(($(this).attr('id')), 10)
     playerTwo.push(index)
-    // playerTwo.sort()
-    console.log(playerTwo)
     $(this).data("clicked", true)
-    console.log($(this).data())
     counter++
-    // paramaters2()
-    // preventDouble(event)
+    console.log(counter)
     preventDouble(event)
     paramaters(counter)
     let win2 = score(playerTwo)
       if (win2) {
+    console.log('player 2 has won ' + win2)
         playerTwoScore++
       }
-      console.log(playerTwoScore)
-    // scoreIncrement()
-
-    // debugger
-    // debugger
-    // score()
-    // return counter++
-    // console.log(counter)
+      console.log('player 2 has scored ' + playerTwoScore)
   }
 }
 
 const paramaters = function(counter) {
   if (counter > 9) {
     $(".game-board").off('click')
-    // console.log($(this))
-    // run score game function TODO
   }
 }
 
 const preventDouble = function(event) {
-  // debugger
   if ($(event.target).data("clicked") === true) {
     $(event.target).off()
-    // debugger
   }
 }
 
@@ -166,6 +145,31 @@ const score = function(array) {
   // console.log('win')
 }
 
+const resetForm = function () {
+  debugger
+ $(".game-board:text").val("")
+ console.log($(".game-board:text"))
+ $("#1").click(inputValue)
+ $("#2").click(inputValue)
+ $("#3").click(inputValue)
+ $("#4").click(inputValue)
+ $("#5").click(inputValue)
+ $("#6").click(inputValue)
+ $("#7").click(inputValue)
+ $("#8").click(inputValue)
+ $("#9").click(inputValue)
+ counter = 0
+ playerOne = []
+ console.log(playerOne)
+ playerTwo = []
+ console.log(playerTwo)
+ console.log(counter)
+}
+
+// const resetForm = function (event) {
+//   $("#gameForm").find('input:text').val("")
+// }
+
 // let scoreIncrement = function () {
 //   if (score(playerOne)) {
 //     playerOneScore++
@@ -177,7 +181,6 @@ const score = function(array) {
 //   }
 // }
 // console.log(scoreIncrement())
-
 
 // let scoreIncrement = function() {
 //   if (counter % 2 !== 0) {
@@ -191,10 +194,6 @@ const score = function(array) {
 //  scoreIncrement()
 //  console.log('player 1 score is ' + playerOneScore)
 //  console.log('player 1 score is ' + playerTwoScore)
-
-
-
-
 
 // for (let i = 0; i < winningConditions[i]; i++) {
 //   for (let j = 0; j < winningConditions[i][j]) {
@@ -239,11 +238,12 @@ const score = function(array) {
 
 // ((playerOne.length >= 3) || (playerTwo.length >= 3))
 
-console.log(playerOne)
-console.log(playerTwo)
+// console.log(playerOne)
+// console.log(playerTwo)
 // console.log(counter)
 
 module.exports = {
   inputValue,
+  resetForm
   // paramaters
 }
