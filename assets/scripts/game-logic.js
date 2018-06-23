@@ -26,7 +26,31 @@ let ties = 0
 let counter = 0
 console.log(counter)
 
-const inputValue = function (event) {
+
+const appearBoard = function (event) {
+    event.preventDefault()
+    // function to redirect to api calls
+    $(".main-game").css("display", "block")
+    $(".login").css("display", "none")
+}
+// const drawBoard = function () {
+//   $("#gameboard").append([
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//       $("<br />"),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//       $("<br />"),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
+//   ])
+//   drawBoard()
+// }
+
+const inputValue = function(event) {
   if (counter % 2 === 0) {
     $(this).val("X")
     const index = parseInt(($(this).attr('id')), 10)
@@ -34,6 +58,7 @@ const inputValue = function (event) {
     $(this).data("clicked", true)
     counter++
     console.log(counter)
+    console.log(playerTwo)
     preventDouble(event)
     paramaters(counter)
     let win = score(playerOne)
@@ -42,6 +67,7 @@ const inputValue = function (event) {
       playerOneScore++
     }
     console.log('player 1 has scored ' + playerOneScore)
+    draw(playerOne, playerTwo)
   } else {
     $(this).val("O")
     const index = parseInt(($(this).attr('id')), 10)
@@ -52,25 +78,43 @@ const inputValue = function (event) {
     preventDouble(event)
     paramaters(counter)
     let win2 = score(playerTwo)
-      if (win2) {
-    console.log('player 2 has won ' + win2)
-        playerTwoScore++
-      }
-      console.log('player 2 has scored ' + playerTwoScore)
+    if (win2) {
+      console.log('player 2 has won ' + win2)
+      playerTwoScore++
+    }
+    console.log('player 2 has scored ' + playerTwoScore)
+    draw(playerOne, playerTwo)
   }
 }
 
-const paramaters = function(counter) {
-  if (counter > 9) {
+const paramaters = function (counter) {
+    if (counter > 9) {
     $(".game-board").off('click')
   }
 }
+
+// const paramaters = function(counter) {
+//   if (counter > 9) {
+//     $(".game-board").off('click')
+//     console.log('we tied!')
+//     ties++
+//     console.log(ties)
+//   }
+// }
 
 const preventDouble = function(event) {
   if ($(event.target).data("clicked") === true) {
     $(event.target).off()
   }
 }
+
+const draw = function (array1, array2) {
+  if (array1.length + array2.length === 9) {
+    console.log('we tied!')
+    ties++
+  }
+}
+
 
 // checkWin function must:
 // check player arrays against winning conditions
@@ -85,12 +129,7 @@ const preventDouble = function(event) {
 // for each number in a players hand - check it against the number in the winning condition
 // if that number doesn't exist - start checking the next winning condition array
 // if at least 3 matching numbers are found - declare a winner (return)
-/*
-
-*/
-
 // declare finished game when counter >= 9
-
 
 const score = function(array) {
   const winningConditions = [
@@ -139,111 +178,34 @@ const score = function(array) {
     }
   }
   console.log(counter)
-  // console.log('win')
-  // debugger
   return win
-  // console.log('win')
 }
 
-const resetForm = function () {
-  debugger
- $(".game-board:text").val("")
- console.log($(".game-board:text"))
- $("#1").click(inputValue)
- $("#2").click(inputValue)
- $("#3").click(inputValue)
- $("#4").click(inputValue)
- $("#5").click(inputValue)
- $("#6").click(inputValue)
- $("#7").click(inputValue)
- $("#8").click(inputValue)
- $("#9").click(inputValue)
- counter = 0
- playerOne = []
- console.log(playerOne)
- playerTwo = []
- console.log(playerTwo)
- console.log(counter)
+const resetForm = function() {
+  // debugger
+  $(".game-board:text").val("")
+  $(".game-board:text").removeData("clicked")
+  console.log($(".game-board:text"))
+  $("#1").click(inputValue)
+  $("#2").click(inputValue)
+  $("#3").click(inputValue)
+  $("#4").click(inputValue)
+  $("#5").click(inputValue)
+  $("#6").click(inputValue)
+  $("#7").click(inputValue)
+  $("#8").click(inputValue)
+  $("#9").click(inputValue)
+  counter = 0
+  playerOne = []
+  console.log(playerOne)
+  playerTwo = []
+  console.log(playerTwo)
+  console.log(counter)
 }
-
-// const resetForm = function (event) {
-//   $("#gameForm").find('input:text').val("")
-// }
-
-// let scoreIncrement = function () {
-//   if (score(playerOne)) {
-//     playerOneScore++
-//   } else if (score(playerTwo)) {
-//       playerTwoScore++
-//   }
-//   else {
-//     ties++
-//   }
-// }
-// console.log(scoreIncrement())
-
-// let scoreIncrement = function() {
-//   if (counter % 2 !== 0) {
-//     playerOneScore += 1
-//     console.log('player 1 score is ' + playerOneScore)
-//   } else {
-//     playerTwoScore += 1
-//     console.log('player 1 score is ' + playerTwoScore)
-//   }
-// }
-//  scoreIncrement()
-//  console.log('player 1 score is ' + playerOneScore)
-//  console.log('player 1 score is ' + playerTwoScore)
-
-// for (let i = 0; i < winningConditions[i]; i++) {
-//   for (let j = 0; j < winningConditions[i][j]) {
-//       if array[k] === winningConditions[i][j]
-//   }
-// }
-
-// for (let i = 0; i < winningConditions.length, i++)
-
-//     array.sort()
-//     array.pop()
-//     console.log(array)
-//   for (let i = 0; i < winningConditions.length; i++) {
-//     debugger
-//     // console.log(winningConditions[i].toString())
-//     // console.log(array.toString())
-//     if (array.toString() === winningConditions[i].toString()) {
-//       debugger
-//       playerOneScore++
-//       debugger
-//       console.log('win')
-//       'playerOne wins!'
-//     } else if (array.toString() === winningConditions[i].toString()) {
-//       playerTwoScore++
-//       console.log('player 2 wins')
-//       'playerTwo wins'
-//     } else {
-//       ties++
-//       return 'we tied!'
-//       console.log('tie')
-//     }
-//   }
-// }
-
-// score(playerOne, playerTwo)
-// const paramaters2 = function () {
-//   if ($(".game-board").val() !== null) {
-//     $(".game-board").off('click')
-//   }
-// }
-// paramaters2()
-
-// ((playerOne.length >= 3) || (playerTwo.length >= 3))
-
-// console.log(playerOne)
-// console.log(playerTwo)
-// console.log(counter)
 
 module.exports = {
   inputValue,
-  resetForm
+  resetForm,
+  appearBoard
   // paramaters
 }

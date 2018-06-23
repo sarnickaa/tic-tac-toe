@@ -44,9 +44,47 @@ input[type=text] {
   cursor: pointer;
   font-size: 2.5em;
 }
-// section {
-//   display: none;
-// } to toggle display later
-.login {
+
+.main-game {
   display: none;
+}
+// to toggle display later
+
+.login {
+  display: block;
+  text-align: center;
+}
+
+legend {
+  margin-top:40px;
+  margin-bottom: 20px;
+}
+
+#email {
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+#pwconf {
+  padding: 15px;
+  font-size: 1.5em;
+  display: inline;
+  margin-bottom: 20px;
+}
+
+#pw {
+  padding: 15px;
+  font-size: 1.5em;
+  display: inline;
+  margin-bottom: 20px;
+}
+
+#login {
+margin-bottom: 20px;
+}
+
+#register {
+margin-bottom: 20px;
 }

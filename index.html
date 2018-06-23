@@ -46,11 +46,15 @@
       <section>
         <div class="login">
           <form>
-              <input name="credentials[email]" type="text" value="an@example.email">
-              <input name="credentials[password]" type="password" value="an example password">
-              <input name="credentials[password_confirmation]" type="password" value="an example password">
+            <legend>Log in or Register to play TicTacToe!</legend>
+              <input id="email" name="credentials[email]" type="text" value="an@example.email" size="40">
+              <br />
+              <input id="pw" name="credentials[password]" type="password" value="an example password">
+              <!-- <br /> -->
+              <input id="pwconf" name="credentials[password_confirmation]" type="password" value="an example password">
               <br />
               <button id="login" type="submit">Login</button>
+              <br />
               <button id="register" type="submit">Register</button>
 
           </form>
