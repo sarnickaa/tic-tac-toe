@@ -38,9 +38,11 @@ const appearBoard = function (event) {
 const inputValue = function(event) {
   if (counter % 2 === 0) {
     $(this).val("X")
+    console.log(this)
     const index = parseInt(($(this).attr('id')), 10)
     playerOne.push(index)
     $(this).data("clicked", true)
+    console.log($(this.data))
     counter++
     console.log(counter)
     console.log(playerTwo)
@@ -50,6 +52,7 @@ const inputValue = function(event) {
     console.log('player 1 has won ' + win)
     if (win) {
       playerOneScore++
+      $(".game-board").off('click')
     }
     console.log('player 1 has scored ' + playerOneScore)
     draw(playerOne, playerTwo)
@@ -66,6 +69,7 @@ const inputValue = function(event) {
     if (win2) {
       console.log('player 2 has won ' + win2)
       playerTwoScore++
+      $(".game-board").off('click')
     }
     console.log('player 2 has scored ' + playerTwoScore)
     draw(playerOne, playerTwo)
@@ -78,7 +82,7 @@ const paramaters = function (counter) {
   }
 }
 
-const preventDouble = function(event) {
+const preventDouble = function (event) {
   if ($(event.target).data("clicked") === true) {
     $(event.target).off()
   }
@@ -160,17 +164,30 @@ const score = function(array) {
 const resetForm = function() {
   // debugger
   $(".game-board:text").val("")
+  debugger
   $(".game-board:text").removeData("clicked")
+  $(".game-board:text").off()
+  debugger
   console.log($(".game-board:text"))
+  debugger
   $("#1").click(inputValue)
+  debugger
   $("#2").click(inputValue)
+  debugger
   $("#3").click(inputValue)
+  debugger
   $("#4").click(inputValue)
+  debugger
   $("#5").click(inputValue)
+  debugger
   $("#6").click(inputValue)
+  debugger
   $("#7").click(inputValue)
+  debugger
   $("#8").click(inputValue)
+  debugger
   $("#9").click(inputValue)
+  debugger
   counter = 0
   playerOne = []
   console.log(playerOne)
