@@ -14,6 +14,8 @@
 
 // set up WIN/LOSS conditions: scoring function
 
+const api = require('./api.js')
+
 let playerOne = []
 console.log(playerOne)
 let playerTwo = []
@@ -29,26 +31,9 @@ console.log(counter)
 
 const appearBoard = function (event) {
     event.preventDefault()
-    // function to redirect to api calls
-    $(".main-game").css("display", "block")
-    $(".login").css("display", "none")
+    // function to redirect to api.js for log in ajax calls
+
 }
-// const drawBoard = function () {
-//   $("#gameboard").append([
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//       $("<br />"),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//       $("<br />"),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//     $("<input/>", {"id": "1", "class": "game-board", "type": "text", "name": "cell", "maxlength": "1", "input size": "1", "value": ""}),
-//   ])
-//   drawBoard()
-// }
 
 const inputValue = function(event) {
   if (counter % 2 === 0) {
@@ -92,15 +77,6 @@ const paramaters = function (counter) {
     $(".game-board").off('click')
   }
 }
-
-// const paramaters = function(counter) {
-//   if (counter > 9) {
-//     $(".game-board").off('click')
-//     console.log('we tied!')
-//     ties++
-//     console.log(ties)
-//   }
-// }
 
 const preventDouble = function(event) {
   if ($(event.target).data("clicked") === true) {
@@ -207,5 +183,4 @@ module.exports = {
   inputValue,
   resetForm,
   appearBoard
-  // paramaters
 }

@@ -7,13 +7,11 @@
 // require('./example')
 
 const gameLogic = require('./game-logic.js')
+const api = require('./api.js')
 
 console.log('hi')
 
 $(() => {
-  // $("#1").click(function(){
-  //   gameLogic.inputValue
-  // })
   $("#1").click(gameLogic.inputValue)
   $("#2").click(gameLogic.inputValue)
   $("#3").click(gameLogic.inputValue)
@@ -24,12 +22,11 @@ $(() => {
   $("#8").click(gameLogic.inputValue)
   $("#9").click(gameLogic.inputValue)
   $("#resetButton").click(gameLogic.resetForm)
-  $("#login").click(gameLogic.appearBoard)
-  $("#register").click(gameLogic.appearBoard)
-  //define function elsewhere
+  $("#login").click(api.userLogin)
+  $("#register").click(api.userRegister)
 })
 
 
-  // $("#0").click(function () {
-  //   $("#0").val("X")
-  // })
+// $("#0").click(function () {
+//   $("#0").val("X")
+// })
