@@ -53,7 +53,7 @@ const inputValue = function(event) {
     console.log('player 1 has won ' + win)
       if (win) {
         playerOneScore++
-        ui.scoreUpdate1()
+        ui.scoreUpdate1(playerOneScore)
         $(".game-board").off('click')
       }
       console.log('player 1 has scored ' + playerOneScore)

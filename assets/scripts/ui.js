@@ -1,8 +1,16 @@
 
+const gameLogic = require('./game-logic.js')
 
+const scoreUpdate1 = function (score) {
 
-const scoreUpdate1 = function () {
-  $("#myModalLabel").html("Player 1 Wins!<br />Player 1 score is")
+    const scoreHTML = (`
+          <h4>Player 1 score is ${score}</h4>
+          <p></p>
+          <p></p>
+          <br>
+        `)
+console.log(gameLogic.playerOneScore)
+  $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
 }
 
@@ -16,6 +24,9 @@ const showDraw = function () {
   $("#myModal").modal('show')
 }
 
+// <h4>Title: Player 1 Wins!</h4>
+// <br>
+// <p>
 
 module.exports = {
   scoreUpdate1,
