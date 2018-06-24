@@ -2,25 +2,34 @@
 const gameLogic = require('./game-logic.js')
 
 const scoreUpdate1 = function (score) {
-
-    const scoreHTML = (`
-          <h4>Player 1 score is ${score}</h4>
-          <p></p>
-          <p></p>
+  $('.modal-body').html('')
+  const scoreHTML = (`
+          <h4>Player 1 Wins!</h4>
+          <p>Player 1 Score Is ${score}</p>
           <br>
         `)
-console.log(gameLogic.playerOneScore)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
 }
 
-const scoreUpdate2 = function () {
-  $("#myModalLabel").html("Player 2 Wins!<br />Player 2 score is")
+const scoreUpdate2 = function (score) {
+  $('.modal-body').html('')
+  const score2HTML = (`
+        <h4>Player 2 Wins!</h4>
+        <p>Player 2 Score Is ${score}</p>
+        <br>
+      `)
+  $(".modal-body").html(score2HTML)
   $("#myModal").modal('show')
 }
 
-const showDraw = function () {
-  $("#myModalLabel").html("we tied!")
+const showDraw = function (score) {
+  const scoreHTML = (`
+        <h4>We Tied!</h4>
+        <p>Tie Games: ${score}</p>
+        <br>
+      `)
+  $("#myModalLabel").html(scoreHTML)
   $("#myModal").modal('show')
 }
 

@@ -71,7 +71,7 @@ const inputValue = function(event) {
       if (win2) {
         console.log('player 2 has won ' + win2)
         playerTwoScore++
-        ui.scoreUpdate2()
+        ui.scoreUpdate2(playerTwoScore)
         $(".game-board").off('click')
       }
     console.log('player 2 has scored ' + playerTwoScore)
@@ -96,7 +96,7 @@ const draw = function (array1, array2) {
     console.log('we tied!')
     ties++
     console.log(ties)
-    ui.showDraw()
+    ui.showDraw(ties)
   }
 }
 
