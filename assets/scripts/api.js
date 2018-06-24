@@ -13,6 +13,7 @@ const clear = function() {
 const userLogin = function () {
   event.preventDefault()
   $(".main-game").css("display", "block")
+  $(".scoreboard").css("display", "flex")
   $(".login").css("display", "none")
   ajax.login()
     .then(uI.onLoginSuccess)
@@ -22,6 +23,7 @@ const userLogin = function () {
 const userRegister = function () {
   event.preventDefault()
   $(".main-game").css("display", "block")
+  $(".scoreboard").css("display", "flex")
   $(".login").css("display", "none")
   ajax.register()
     .then(uI.onRegisterSuccess)

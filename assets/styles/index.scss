@@ -55,6 +55,17 @@ input[type=text] {
   text-align: center;
 }
 
+.scoreboard {
+  display: none;
+  justify-content: center;
+  text-align: center;
+}
+
+.scoreboard > h4 {
+  margin: 20px 10px 0 20px;
+}
+
+
 legend {
   margin-top:40px;
   margin-bottom: 20px;

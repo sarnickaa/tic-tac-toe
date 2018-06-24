@@ -24,13 +24,22 @@ const scoreUpdate2 = function (score) {
 }
 
 const showDraw = function (score) {
+  $('.modal-body').html('')
   const scoreHTML = (`
         <h4>We Tied!</h4>
         <p>Tie Games: ${score}</p>
         <br>
       `)
-  $("#myModalLabel").html(scoreHTML)
+  $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
+}
+
+const displayScore1 = function () {
+
+}
+
+const displayScore2 = function () {
+
 }
 
 // <h4>Title: Player 1 Wins!</h4>

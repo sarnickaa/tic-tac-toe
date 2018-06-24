@@ -56,8 +56,10 @@ const inputValue = function(event) {
         ui.scoreUpdate1(playerOneScore)
         $(".game-board").off('click')
       }
+      draw(playerOne, playerTwo)
+      // TODO ui.displayScore1()
       console.log('player 1 has scored ' + playerOneScore)
-    draw(playerOne, playerTwo)
+
   } else {
     $(this).val("O")
     const index = parseInt(($(this).attr('id')), 10)
@@ -74,6 +76,7 @@ const inputValue = function(event) {
         ui.scoreUpdate2(playerTwoScore)
         $(".game-board").off('click')
       }
+      // TODO ui.displayScore2()
     console.log('player 2 has scored ' + playerTwoScore)
     draw(playerOne, playerTwo)
   }
