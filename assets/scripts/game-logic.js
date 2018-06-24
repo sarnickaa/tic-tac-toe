@@ -15,6 +15,7 @@
 // set up WIN/LOSS conditions: scoring function
 
 const api = require('./api.js')
+const ui = require('./ui.js')
 
 let playerOne = []
 console.log(playerOne)
@@ -50,11 +51,12 @@ const inputValue = function(event) {
     paramaters(counter)
     let win = score(playerOne)
     console.log('player 1 has won ' + win)
-    if (win) {
-      playerOneScore++
-      $(".game-board").off('click')
-    }
-    console.log('player 1 has scored ' + playerOneScore)
+      if (win) {
+        playerOneScore++
+        ui.scoreUpdate1()
+        $(".game-board").off('click')
+      }
+      console.log('player 1 has scored ' + playerOneScore)
     draw(playerOne, playerTwo)
   } else {
     $(this).val("O")
@@ -66,11 +68,12 @@ const inputValue = function(event) {
     preventDouble(event)
     paramaters(counter)
     let win2 = score(playerTwo)
-    if (win2) {
-      console.log('player 2 has won ' + win2)
-      playerTwoScore++
-      $(".game-board").off('click')
-    }
+      if (win2) {
+        console.log('player 2 has won ' + win2)
+        playerTwoScore++
+        ui.scoreUpdate2()
+        $(".game-board").off('click')
+      }
     console.log('player 2 has scored ' + playerTwoScore)
     draw(playerOne, playerTwo)
   }
@@ -92,6 +95,8 @@ const draw = function (array1, array2) {
   if (array1.length + array2.length === 9) {
     console.log('we tied!')
     ties++
+    console.log(ties)
+    ui.showDraw()
   }
 }
 
@@ -146,13 +151,13 @@ const score = function(array) {
         }
         if (numberFound === false) {
           winningArraySetFound = false
-          console.log('no match')
+          // console.log('no match')
           break
         }
       }
       if (winningArraySetFound === true) {
         win = true
-        console.log('win')
+        // console.log('win')
         break
       }
     }
