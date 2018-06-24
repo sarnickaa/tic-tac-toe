@@ -55,8 +55,12 @@ const inputValue = function(event) {
         playerOneScore++
         ui.scoreUpdate1(playerOneScore)
         $(".game-board").off('click')
+      } else if (!win && (playerOne.length + playerTwo.length === 9)) {
+        ties++
+        ui.showDraw(ties)
+        $(".game-board").off('click')
       }
-      draw(playerOne, playerTwo)
+      //
       // TODO ui.displayScore1()
       console.log('player 1 has scored ' + playerOneScore)
 
@@ -75,10 +79,14 @@ const inputValue = function(event) {
         playerTwoScore++
         ui.scoreUpdate2(playerTwoScore)
         $(".game-board").off('click')
+      } else if (!win2 && (playerOne.length + playerTwo.length === 9)) {
+        ties++
+        ui.showDraw(ties)
+        $(".game-board").off('click')
       }
       // TODO ui.displayScore2()
     console.log('player 2 has scored ' + playerTwoScore)
-    draw(playerOne, playerTwo)
+    // draw(playerOne, playerTwo)
   }
 }
 
@@ -94,14 +102,14 @@ const preventDouble = function (event) {
   }
 }
 
-const draw = function (array1, array2) {
-  if (array1.length + array2.length === 9) {
-    console.log('we tied!')
-    ties++
-    console.log(ties)
-    ui.showDraw(ties)
-  }
-}
+// const draw = function (array1, array2) {
+//   if (array1.length + array2.length === 9 && ) {
+//     console.log('we tied!')
+//     ties++
+//     console.log(ties)
+//     ui.showDraw(ties)
+//   }
+// }
 
 
 // checkWin function must:
