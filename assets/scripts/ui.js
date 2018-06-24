@@ -34,13 +34,28 @@ const showDraw = function (score) {
   $("#myModal").modal('show')
 }
 
-const displayScore1 = function () {
-
+const displayScore1 = function (score) {
+  const scoreHTML = (`
+    <h3>${score}</h3>
+    `)
+  $("#p1s").html(scoreHTML)
 }
 
-const displayScore2 = function () {
-
+const displayScore2 = function (score) {
+  const scoreHTML = (`
+    <h3>${score}</h3>
+    `)
+  $("#p2s").html(scoreHTML)
 }
+
+const displayTies = function (score) {
+  const scoreHTML = (`
+    <h3>${score}</h3>
+    `)
+  $("#ts").html(scoreHTML)
+}
+
+// TODO display tie scores
 
 // <h4>Title: Player 1 Wins!</h4>
 // <br>
@@ -49,5 +64,8 @@ const displayScore2 = function () {
 module.exports = {
   scoreUpdate1,
   scoreUpdate2,
-  showDraw
+  showDraw,
+  displayScore1,
+  displayScore2,
+  displayTies
 }

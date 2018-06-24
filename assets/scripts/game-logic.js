@@ -58,10 +58,11 @@ const inputValue = function(event) {
       } else if (!win && (playerOne.length + playerTwo.length === 9)) {
         ties++
         ui.showDraw(ties)
+        ui.displayTies(ties)
         $(".game-board").off('click')
       }
       //
-      // TODO ui.displayScore1()
+      ui.displayScore1(playerOneScore)
       console.log('player 1 has scored ' + playerOneScore)
 
   } else {
@@ -82,9 +83,10 @@ const inputValue = function(event) {
       } else if (!win2 && (playerOne.length + playerTwo.length === 9)) {
         ties++
         ui.showDraw(ties)
+        ui.displayTies(ties)
         $(".game-board").off('click')
       }
-      // TODO ui.displayScore2()
+      ui.displayScore2(playerTwoScore)
     console.log('player 2 has scored ' + playerTwoScore)
     // draw(playerOne, playerTwo)
   }
