@@ -30,11 +30,11 @@ let counter = 0
 console.log(counter)
 
 
-const appearBoard = function (event) {
-    event.preventDefault()
-    // function to redirect to api.js for log in ajax calls
-
-}
+// const appearBoard = function (event) {
+//     event.preventDefault()
+//     // function to redirect to api.js for log in ajax calls
+//
+// }
 
 const inputValue = function(event) {
   if (counter % 2 === 0) {
@@ -216,6 +216,6 @@ const resetForm = function() {
 
 module.exports = {
   inputValue,
-  resetForm,
-  appearBoard
+  resetForm
+  // appearBoard
 }

@@ -8,6 +8,7 @@
 
 const gameLogic = require('./game-logic.js')
 const api = require('./api.js')
+const ui = require('./ui.js')
 
 console.log('hi')
 
@@ -22,8 +23,9 @@ $(() => {
   $("#8").click(gameLogic.inputValue)
   $("#9").click(gameLogic.inputValue)
   $("#resetButton").click(gameLogic.resetForm)
-  $("#login").click(api.userLogin)
-  $("#register").click(api.userRegister)
+  $("#login").on("submit", api.userLogin)
+  $("#loginForm").on("submit", api.userRegister)
+  $("#get-game").click(ui.appearBoard)
 })
 
 

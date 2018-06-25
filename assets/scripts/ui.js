@@ -1,6 +1,15 @@
 
 const gameLogic = require('./game-logic.js')
 
+
+const appearBoard = function () {
+  event.preventDefault()
+  $(".main-game").css("display", "block")
+  $(".scoreboard").css("display", "flex")
+  $(".login").css("display", "none")
+  $("#get-game").css("display", "none")
+}
+
 const scoreUpdate1 = function (score) {
   $('.modal-body').html('')
   const scoreHTML = (`
@@ -64,7 +73,8 @@ const LoginError = function () {
 }
 
 const onRegisterSuccess = function () {
-
+// TODO - generate get-game button on this screen
+console.log('success')
 }
 
 const RegisterError = function () {
@@ -81,5 +91,7 @@ module.exports = {
   showDraw,
   displayScore1,
   displayScore2,
-  displayTies
+  displayTies,
+  appearBoard,
+  onRegisterSuccess
 }
