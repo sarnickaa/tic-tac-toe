@@ -66,6 +66,7 @@ const displayTies = function (score) {
 
 const onLoginSuccess = function (data) {
 console.log('login success')
+console.log(data)
 $(".game-portal").css("display", "block")
 $(".login").css("display", "none")
 store.user = data.user
@@ -75,9 +76,10 @@ const LoginError = function () {
 
 }
 
-const onRegisterSuccess = function () {
+const onRegisterSuccess = function (data) {
 // TODO - generate get-game button on this screen
 console.log('success')
+console.log(data)
 $(".game-portal").css("display", "block")
 $(".login").css("display", "none")
 gameLogic.resetScoreBoard()
