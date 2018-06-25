@@ -65,7 +65,7 @@ const displayTies = function (score) {
 }
 
 const onLoginSuccess = function () {
-
+console.log('login success')
 }
 
 const LoginError = function () {
@@ -93,5 +93,6 @@ module.exports = {
   displayScore2,
   displayTies,
   appearBoard,
-  onRegisterSuccess
+  onRegisterSuccess,
+  onLoginSuccess
 }

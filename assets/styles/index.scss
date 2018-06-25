@@ -76,21 +76,35 @@ legend {
   margin-bottom: 30px;
 }
 
-#email {
+#email-login {
   padding: 15px;
   box-sizing: border-box;
   margin-bottom: 20px;
   font-size: 1.5em;
 }
 
-#pwconf {
+#pw-login {
   padding: 15px;
   font-size: 1.5em;
   display: inline;
   margin-bottom: 20px;
 }
 
-#pw {
+#email-register {
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+#pwconf-register {
+  padding: 15px;
+  font-size: 1.5em;
+  display: inline;
+  margin-bottom: 20px;
+}
+
+#pw-register {
   padding: 15px;
   font-size: 1.5em;
   display: inline;

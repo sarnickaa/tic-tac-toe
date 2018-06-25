@@ -24,7 +24,8 @@ $(() => {
   $("#9").click(gameLogic.inputValue)
   $("#resetButton").click(gameLogic.resetForm)
   $("#login").on("submit", api.userLogin)
-  $("#loginForm").on("submit", api.userRegister)
+  $("#registerForm").on("submit", api.userRegister)
+  $("#loginForm").on("submit", api.userLogin)
   $("#get-game").click(ui.appearBoard)
 })
 

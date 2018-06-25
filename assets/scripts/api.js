@@ -22,16 +22,12 @@ const userLogin = function (event) {
 }
 
 const userRegister = function (event) {
-  debugger
   console.log('sign up worked')
-  debugger
   // $(".main-game").css("display", "block")
   // $(".scoreboard").css("display", "flex")
   // $(".login").css("display", "none")
   const data = getFormFields(this)
-  debugger
   event.preventDefault()
-  debugger
   ajax.register(data)
     .then(ui.onRegisterSuccess)
     .catch(ui.registerError)
@@ -41,7 +37,8 @@ const userRegister = function (event) {
 module.exports = {
   clear,
   userLogin,
-  userRegister
+  userRegister,
+  userLogin
   // login,
   // register
 }

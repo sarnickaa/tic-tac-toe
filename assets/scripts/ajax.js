@@ -13,7 +13,19 @@ const register = function (data) {
   })
 }
 
+const login = function (data) {
+  console.log(data)
+  console.log(config.apiUrl)
+  console.log('ajax login request getting ' + data)
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data
+  })
+}
+
 module.exports = {
   // login,
-  register
+  register,
+  login
 }
