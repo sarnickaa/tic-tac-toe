@@ -6,7 +6,6 @@ const appearBoard = function () {
   event.preventDefault()
   $(".main-game").css("display", "block")
   $(".scoreboard").css("display", "flex")
-  $(".login").css("display", "none")
   $("#get-game").css("display", "none")
 }
 
@@ -66,6 +65,9 @@ const displayTies = function (score) {
 
 const onLoginSuccess = function () {
 console.log('login success')
+$(".game-portal").css("display", "block")
+$(".login").css("display", "none")
+
 }
 
 const LoginError = function () {
@@ -75,6 +77,8 @@ const LoginError = function () {
 const onRegisterSuccess = function () {
 // TODO - generate get-game button on this screen
 console.log('success')
+$(".game-portal").css("display", "block")
+$(".login").css("display", "none")
 }
 
 const RegisterError = function () {
