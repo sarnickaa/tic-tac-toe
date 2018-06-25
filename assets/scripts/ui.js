@@ -1,5 +1,6 @@
 
 const gameLogic = require('./game-logic.js')
+const store = require('./store.js')
 
 
 const appearBoard = function () {
@@ -63,11 +64,11 @@ const displayTies = function (score) {
   $("#ts").html(scoreHTML)
 }
 
-const onLoginSuccess = function () {
+const onLoginSuccess = function (data) {
 console.log('login success')
 $(".game-portal").css("display", "block")
 $(".login").css("display", "none")
-
+store.user = data.user
 }
 
 const LoginError = function () {
@@ -85,6 +86,18 @@ const RegisterError = function () {
 
 }
 
+const onPwSuccess = function () {
+console.log('pw changed successfully')
+}
+
+const onLogoutSuccess = function () {
+console.log('logout success')
+}
+
+const logoutError = function () {
+
+}
+
 // <h4>Title: Player 1 Wins!</h4>
 // <br>
 // <p>
@@ -98,5 +111,8 @@ module.exports = {
   displayTies,
   appearBoard,
   onRegisterSuccess,
-  onLoginSuccess
+  onLoginSuccess,
+  onPwSuccess,
+  onLogoutSuccess,
+  logoutError
 }

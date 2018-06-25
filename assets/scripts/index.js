@@ -26,6 +26,8 @@ $(() => {
   $("#login").on("submit", api.userLogin)
   $("#registerForm").on("submit", api.userRegister)
   $("#loginForm").on("submit", api.userLogin)
+  $("#changepw").on("submit", api.userPwChange)
+  $("#logoutform").on("submit", api.userLogout)
   $("#get-game").click(ui.appearBoard)
 })
 

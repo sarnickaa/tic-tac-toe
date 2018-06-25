@@ -13,8 +13,9 @@ const clear = function() {
 
 
 const userLogin = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
+
 
   ajax.login(data)
     .then(ui.onLoginSuccess)
@@ -26,11 +27,29 @@ const userRegister = function (event) {
   // $(".main-game").css("display", "block")
   // $(".scoreboard").css("display", "flex")
   // $(".login").css("display", "none")
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
   ajax.register(data)
     .then(ui.onRegisterSuccess)
     .catch(ui.registerError)
+}
+
+const userPwChange = function (event) {
+  console.log('pw change function fired')
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data)
+
+  ajax.pwChange(data)
+    .then(ui.onPwSuccess)
+    .catch(ui.pwError)
+}
+
+const userLogout = function (event) {
+  event.preventDefault()
+  ajax.logout()
+  .then(ui.onLogoutSuccess)
+  .catch(ui.logoutError)
 }
 
 //
@@ -38,7 +57,9 @@ module.exports = {
   clear,
   userLogin,
   userRegister,
-  userLogin
+  // userLogin,
+  userPwChange,
+  userLogout
   // login,
   // register
 }
