@@ -1,6 +1,7 @@
 
-const clear = function() {
+const ui = require('./ui.js')
 
+const clear = function() {
   $("#email, #pw, #pwconf").focus(function() {
     if ($(this).attr("value") !== "") {
       $(this).attr("value", "")
@@ -16,18 +17,18 @@ const userLogin = function () {
   $(".scoreboard").css("display", "flex")
   $(".login").css("display", "none")
   ajax.login()
-    .then(uI.onLoginSuccess)
-    .catch(uI.LoginError)
+    .then(ui.onLoginSuccess)
+    .catch(ui.LoginError)
 }
 
 const userRegister = function () {
   event.preventDefault()
+  ajax.register()
   $(".main-game").css("display", "block")
   $(".scoreboard").css("display", "flex")
   $(".login").css("display", "none")
-  ajax.register()
-    .then(uI.onRegisterSuccess)
-    .catch(uI.registerError)
+    .then(ui.onRegisterSuccess)
+    .catch(ui.registerError)
 }
 
 

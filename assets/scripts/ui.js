@@ -55,7 +55,21 @@ const displayTies = function (score) {
   $("#ts").html(scoreHTML)
 }
 
-// TODO display tie scores
+const onLoginSuccess = function () {
+
+}
+
+const LoginError = function () {
+
+}
+
+const onRegisterSuccess = function () {
+
+}
+
+const RegisterError = function () {
+
+}
 
 // <h4>Title: Player 1 Wins!</h4>
 // <br>
