@@ -80,6 +80,7 @@ const onRegisterSuccess = function () {
 console.log('success')
 $(".game-portal").css("display", "block")
 $(".login").css("display", "none")
+gameLogic.resetScoreBoard()
 }
 
 const RegisterError = function () {
@@ -92,6 +93,14 @@ console.log('pw changed successfully')
 
 const onLogoutSuccess = function () {
 console.log('logout success')
+
+$(".main-game").css("display", "none")
+const message = (`
+  <h3>Thanks For Playing TicTacToe!</h3>
+  `)
+$("#logout-message").html(message)
+gameLogic.resetScoreBoard()
+
 }
 
 const logoutError = function () {

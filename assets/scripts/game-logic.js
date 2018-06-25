@@ -214,8 +214,14 @@ const resetForm = function() {
   console.log(counter)
 }
 
+const resetScoreBoard = function () {
+  playerOneScore = 0
+  playerTwoScore = 0
+}
+
 module.exports = {
   inputValue,
-  resetForm
+  resetForm,
+  resetScoreBoard
   // appearBoard
 }
