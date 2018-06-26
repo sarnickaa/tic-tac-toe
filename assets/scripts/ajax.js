@@ -74,7 +74,7 @@ const updateGame = function (index, value, over) {
   console.log(over)
   // console.log(store.game.id)
   return $.ajax({
-    url: config.apiUrl + '/games/' + `${store.game.id}`,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
