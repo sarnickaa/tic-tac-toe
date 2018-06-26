@@ -1,136 +1,137 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <div class="wrapper">
-        <header>
-          <div class="header">
-            <div class="logo">
-              <img src="/assets/ttt_text-1.png" width="125px">
-              <img src="/assets/ttt_banner.png" width="300px">
-            </div>
-            <!-- <h1>TIC TAC TOE</h1> -->
-          </div>
-        </header>
-      <section class="scoreboard">
-        <h4>PLAYER 1 SCORE:</h4>
-        <div id="p1s"></div>
-        <h4>TIES:</h4>
-        <div id="ts"></div>
-        <h4>PLAYER 2 SCORE:</h4>
-        <div id="p2s"></div>
-      </section>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <section>
-        <div class="main-game">
-            <div class="form">
-            <form id="gameboard">
-                <input id="0" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                <input id="1" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                <input id="2" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                  <br />
-                <input id="3" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                <input id="4" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                <input id="5" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                  <br />
-                <input id="6" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                <input id="7" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                <input id="8" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
-                  <br />
-                <button id="createButton" type="button">Create New Game</button>
-                  <br />
-                <button id="resetButton" type="button"> Reset</button>
-                  <br />
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-            </form>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="header">
+        <div class="logo">
+          <img src="/assets/ttt_text-1.png" width="125px">
+          <img src="/assets/ttt_banner.png" width="300px">
+        </div>
+        <!-- <h1>TIC TAC TOE</h1> -->
+      </div>
+    </header>
+    <section class="scoreboard">
+      <h4>PLAYER 1 SCORE:</h4>
+      <div id="p1s"></div>
+      <h4>TIES:</h4>
+      <div id="ts"></div>
+      <h4>PLAYER 2 SCORE:</h4>
+      <div id="p2s"></div>
+    </section>
 
-            <form id="changepw" class="changepw">
-              <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
-              <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
-              <button id="pw-change-submit" type="submit">Change Password</button>
-            </form>
+    <section>
+      <div class="main-game">
+        <div class="form">
+          <form id="gameboard">
+            <button id="createButton" type="button">Create New Game</button>
+            <button id="resetButton" type="button">Reset</button>
+            <button id="getGamesButton" type="button">Get Games</button>
+            <br />
+            <input id="0" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <input id="1" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <input id="2" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <br />
+            <input id="3" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <input id="4" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <input id="5" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <br />
+            <input id="6" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <input id="7" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+            <input id="8" class="game-board" type="text" name="cell" maxlength="1" input size="1" value="" autocomplete="off">
+          </form>
 
-            <form id="logoutform">
-              <button id="logoutbutton" type="submit">Logout</button>
-            </form>
+          <form id="changepw" class="changepw">
+            <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
+            <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
+            <button id="pw-change-submit" type="submit">Change Password</button>
+          </form>
 
-          </div>
+          <form id="logoutform">
+            <button id="logoutbutton" type="submit">Logout</button>
+          </form>
+
+        </div>
       </div>
     </section>
 
-      <section>
-        <div class="login">
+    <section>
+      <div class="login">
 
-            <form id="registerForm">
-              <legend>Register to play TicTacToe!</legend>
-              <input id="email-register" name="credentials[email]" type="text" size="40" placeholder="your@email.com">
-              <br />
-              <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
-              <!-- <br /> -->
-              <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
-              <!-- <br />
+        <form id="registerForm">
+          <legend>Register to play TicTacToe!</legend>
+          <input id="email-register" name="credentials[email]" type="text" size="40" placeholder="your@email.com">
+          <br />
+          <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
+          <!-- <br /> -->
+          <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+          <!-- <br />
               <button id="login" type="submit">Login</button> -->
-              <br />
-              <button id="register" type="submit">Register</button>
-            </form>
-        </div>
-      </section>
+          <br />
+          <button id="register" type="submit">Register</button>
+        </form>
+      </div>
+    </section>
 
-      <section>
-        <div class="login">
+    <section>
+      <div class="login">
 
-            <form id="loginForm">
-              <legend>Log in to play TicTacToe!</legend>
-              <input id="email-login" name="credentials[email]" type="text" size="40" placeholder="your@email.com">
-              <br />
-              <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
-              <!-- <br /> -->
-              <!-- <input id="pwconf" name="credentials[password_confirmation]" type="password" value="an example password"> -->
-              <br />
-              <button id="login" type="submit">Login</button>
-              <!-- <br />
+        <form id="loginForm">
+          <legend>Log in to play TicTacToe!</legend>
+          <input id="email-login" name="credentials[email]" type="text" size="40" placeholder="your@email.com">
+          <br />
+          <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
+          <!-- <br /> -->
+          <!-- <input id="pwconf" name="credentials[password_confirmation]" type="password" value="an example password"> -->
+          <br />
+          <button id="login" type="submit">Login</button>
+          <!-- <br />
               <button id="register" type="submit">Register</button> -->
-            </form>
-        </div>
-      </section>
-    </div>
-    <!-- wrapper end -->
+        </form>
+      </div>
+    </section>
+  </div>
+  <!-- wrapper end -->
 
-    <!-- <section class="game-portal">
+  <!-- <section class="game-portal">
       <button id="get-game" type="submit">Enter Game!</button>
     </section> -->
 
-    <section>
-      <div id="logout-message"></div>
-    </section>
+  <section>
+    <div id="logout-message"></div>
+  </section>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">GAME OVER!</h4>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">GAME OVER!</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
-    <!-- modal end -->
-  </body>
+  </div>
+  <!-- modal end -->
+</body>
+
 </html>

@@ -30,6 +30,7 @@ $(() => {
   $("#logoutform").on("submit", api.userLogout)
   $("#get-game").click(ui.appearBoard)
   $("#createButton").click(api.createGame)
+  $("#getGamesButton").click(api.getGames)
 })
 
 

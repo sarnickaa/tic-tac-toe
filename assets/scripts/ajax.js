@@ -1,8 +1,8 @@
-
 const config = require('./config.js')
 const store = require('./store.js')
+const ui = require('./ui.js')
 
-const register = function (data) {
+const register = function(data) {
   console.log(data)
   console.log(config.apiUrl)
   console.log('ajax request gettin ' + data)
@@ -13,7 +13,7 @@ const register = function (data) {
   })
 }
 
-const login = function (data) {
+const login = function(data) {
   console.log(data)
   console.log(config.apiUrl)
   console.log('ajax login request getting ' + data)
@@ -24,7 +24,7 @@ const login = function (data) {
   })
 }
 
-const pwChange = function (data) {
+const pwChange = function(data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -35,7 +35,7 @@ const pwChange = function (data) {
   })
 }
 
-const logout = function () {
+const logout = function() {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -45,7 +45,7 @@ const logout = function () {
   })
 }
 
-const create = function () {
+const create = function() {
   console.log('create game ran')
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -56,11 +56,56 @@ const create = function () {
   })
 }
 
+const getUserGames = function() {
+  console.log('get game ran')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateGame = function (index, value, over) {
+  console.log('update ran')
+  console.log(index)
+  console.log(value)
+  console.log(over)
+  // console.log(store.game.id)
+  return $.ajax({
+    url: config.apiUrl + '/games/' + `${store.game.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      "game": {
+        "cell": {
+          "index": `${index}`,
+          "value": `${value}`
+        },
+        "over": `${over}`
+      }
+    }
+  })
+}
+
+
+// "cell": {
+//   "index": "'"${INDEX}"'",
+//   "value": "'"${VALUE}"'"
+// },
+// "over": "'"${OVER}"'"
+// }
+
 module.exports = {
   // login,
   register,
   login,
   pwChange,
   logout,
-  create
+  create,
+  getUserGames,
+  updateGame
 }
