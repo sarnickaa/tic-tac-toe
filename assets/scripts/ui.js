@@ -82,8 +82,17 @@ appearBoard()
 store.user = data.user
 }
 
-const LoginError = function () {
-
+const loginError = function (data) {
+  console.log('error')
+  $('.modal-body').html('')
+  $("#myModalLabel").html('ERROR')
+  const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Try Logging In Again</p>
+        <br>
+      `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
 }
 
 const onRegisterSuccess = function (data) {
@@ -105,8 +114,16 @@ $("#registerForm").css("display", "none")
 gameLogic.resetScoreBoard()
 }
 
-const RegisterError = function () {
-
+const registerError = function (data) {
+  $('.modal-body').html('')
+  $("#myModalLabel").html('ERROR')
+  const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Try Registering Again</p>
+        <br>
+      `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
 }
 
 const onPwSuccess = function () {
@@ -131,10 +148,9 @@ const message = (`
   `)
 $("#logout-message").html(message)
 // gameLogic.resetScoreBoard()
-
 }
 
-const logoutError = function () {
+const logoutError = function (data) {
   $('.modal-body').html('')
   $("#myModalLabel").html('ERROR')
   const scoreHTML = (`
@@ -162,5 +178,7 @@ module.exports = {
   onLoginSuccess,
   onPwSuccess,
   onLogoutSuccess,
-  logoutError
+  logoutError,
+  loginError,
+  registerError
 }
