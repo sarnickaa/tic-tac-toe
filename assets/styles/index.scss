@@ -12,15 +12,15 @@ body {
 // }
 
 .main-game {
-  background-color: yellow;
+  // background-color: yellow;
   padding: 30px;
 }
 
 .header {
   // background-color: red;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box;
-  margin-top: 10px;
+  // margin-top: 10px;
   display: flex;
   justify-content: center;
 }
@@ -58,16 +58,26 @@ input[type=text] {
   text-align: center;
 }
 
+// input[type=text].login {
+//   padding: 5px;
+//   box-sizing: border-box;
+//   margin: 5px;
+//   border-radius: 3px;
+//   border: 1px solid #ccc;
+//   // cursor: pointer;
+//   font-size: 1.5em;
+// }
+
 .scoreboard {
   display: none;
   justify-content: center;
   text-align: center;
-  background: pink;
+  // background: pink;
 }
 
 .scoreboard > h4 {
   margin: 20px 10px 0 20px;
-  background: orange;
+  // background: orange;
 }
 
 
@@ -77,36 +87,36 @@ legend {
 }
 
 #email-login {
-  padding: 15px;
+  padding: 5px;
   box-sizing: border-box;
   margin-bottom: 20px;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 #pw-login {
-  padding: 15px;
-  font-size: 1.5em;
+  padding: 5px;
+  font-size: 1em;
   display: inline;
   margin-bottom: 20px;
 }
 
 #email-register {
-  padding: 15px;
+  padding: 5px;
   box-sizing: border-box;
   margin-bottom: 20px;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 #pwconf-register {
-  padding: 15px;
-  font-size: 1.5em;
+  padding: 5px;
+  font-size: 1em;
   display: inline;
   margin-bottom: 20px;
 }
 
 #pw-register {
-  padding: 15px;
-  font-size: 1.5em;
+  padding: 5px;
+  font-size: 1em;
   display: inline;
   margin-bottom: 20px;
 }
@@ -119,13 +129,62 @@ margin-bottom: 20px;
 margin-bottom: 20px;
 }
 
-.game-portal {
-  display: none;
-  text-align: center;
+// .game-portal {
+//   display: none;
+//   text-align: center;
+// }
+
+#resetButton {
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .changepw {
+  display: inline;
+  text-align: center;
+  // margin: 20px;
+}
+
+#pw-change {
+  display: inline;
+  margin: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+#pw-change-conf {
+  display: inline;
+  margin: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+#pw-change-submit {
+  margin: 10px;
+}
+
+button {
+    background-color: #e51f32; /* Green */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    // font-size: 16px;
+}
+
+#logoutbutton {
+  background-color: black;
+}
+
+#logoutform {
+  display: inline;
+}
+
+#logout-message {
+  margin: 30px;
   display: block;
   text-align: center;
-  margin: 20px;
 }

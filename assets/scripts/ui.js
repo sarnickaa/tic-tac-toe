@@ -4,10 +4,10 @@ const store = require('./store.js')
 
 
 const appearBoard = function () {
-  event.preventDefault()
+  // event.preventDefault()
   $(".main-game").css("display", "block")
   $(".scoreboard").css("display", "flex")
-  $("#get-game").css("display", "none")
+  // $("#get-game").css("display", "none")
 }
 
 const scoreUpdate1 = function (score) {
@@ -67,8 +67,18 @@ const displayTies = function (score) {
 const onLoginSuccess = function (data) {
 console.log('login success')
 console.log(data)
-$(".game-portal").css("display", "block")
+
+$('.modal-body').html('')
+$("#myModalLabel").html('Success!')
+const scoreHTML = (`
+      <h4>User Logged In</h4>
+      <br>
+    `)
+$(".modal-body").html(scoreHTML)
+$("#myModal").modal('show')
+// $(".game-portal").css("display", "block")
 $(".login").css("display", "none")
+appearBoard()
 store.user = data.user
 }
 
@@ -80,8 +90,18 @@ const onRegisterSuccess = function (data) {
 // TODO - generate get-game button on this screen
 console.log('success')
 console.log(data)
-$(".game-portal").css("display", "block")
-$(".login").css("display", "none")
+
+$('.modal-body').html('')
+$("#myModalLabel").html('Success!')
+const scoreHTML = (`
+      <h4>User Registered!</h4>
+      <h4>Please Log In To Play</h4>
+      <br>
+    `)
+$(".modal-body").html(scoreHTML)
+$("#myModal").modal('show')
+
+$("#registerForm").css("display", "none")
 gameLogic.resetScoreBoard()
 }
 
@@ -91,22 +111,39 @@ const RegisterError = function () {
 
 const onPwSuccess = function () {
 console.log('pw changed successfully')
+$('.modal-body').html('')
+$("#myModalLabel").html('Success!')
+const scoreHTML = (`
+      <h4>User Changed Password</h4>
+      <br>
+    `)
+$(".modal-body").html(scoreHTML)
+$("#myModal").modal('show')
 }
 
 const onLogoutSuccess = function () {
 console.log('logout success')
-
+$(".scoreboard").css("display", "none")
 $(".main-game").css("display", "none")
 const message = (`
+  <h4>User Logged out</h4>
   <h3>Thanks For Playing TicTacToe!</h3>
   `)
 $("#logout-message").html(message)
-gameLogic.resetScoreBoard()
+// gameLogic.resetScoreBoard()
 
 }
 
 const logoutError = function () {
-
+  $('.modal-body').html('')
+  $("#myModalLabel").html('ERROR')
+  const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Try Logging Out Again</p>
+        <br>
+      `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
 }
 
 // <h4>Title: Player 1 Wins!</h4>
