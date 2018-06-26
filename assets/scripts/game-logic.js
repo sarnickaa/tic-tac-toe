@@ -50,14 +50,9 @@ const inputValue = function (event) {
     $(this).data("clicked", true)
     console.log($(this.data))
     const move = $(this).val()
-    // console.log(this.value)
-    // console.log(this.move)
     cells.splice(index, 1, move)
 
     ajax.updateGame(index, move, over)
-    // console.log(index)
-    // console.log(move)
-    // console.log(over)
     .then(ui.onUpdateSuccess)
     .catch(ui.updateError)
 
@@ -245,7 +240,7 @@ const resetForm = function() {
   playerTwo = []
   console.log(playerTwo)
   console.log(counter)
-  cells = ["", "", "", "", "", "", "", "", ""]
+  // cells = ["", "", "", "", "", "", "", "", ""]
 }
 
 const resetScoreBoard = function() {

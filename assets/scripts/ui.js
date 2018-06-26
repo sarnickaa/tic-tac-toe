@@ -180,17 +180,25 @@ const onCreateSuccess = function (data) {
   $("#myModal").modal('show')
 }
 
-const onGetSuccess = function(data) {
+const onGetSuccess = function (data) {
   console.log('success', data.games)
+  console.log(data)
   $('.modal-body').html('')
-  $("#myModalLabel").html('Game Retrieved')
-  const scoreHTML = (`
-        <h4>User created New Game</h4>
-        <p>Please Click The Gameboard To Start Playing!</p>
+  $("#myModalLabel").html('Games Retrieved')
+
+  data.games.forEach(function(game) {
+    const gameHTML = (`
+        <h4>User Games:</h4>
+        <p>${game.id}</p>
+        <p>${game.cells}</p>
+        <p>${game.over}</p>
         <br>
       `)
-  $(".modal-body").html(scoreHTML)
+      $(".modal-body").append(gameHTML)
+    })
   $("#myModal").modal('show')
+
+  // $("#data-print").html(scoreHTML)
 }
 
 const onUpdateSuccess = function() {
