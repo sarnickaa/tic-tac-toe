@@ -1,52 +1,28 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+# Tic Tac Toe Game Project
 
-.
+## Overview
+For my first project at General Assembly, I was asked to build a Single Page Application for the web allowing one user to play Tic Tac Toe against another user.
 
-## Installation
+My User Stories for this project are as follows:
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+  1. Only registered users can play Tic Tac Toe
+  2. As a user, I want to be able to register for Tic Tac Toe with my email and a password.
+  3. As a user once registered, I want to be able to log in to play.
+  4. As a user, I want to be able to change my password once logged in.
+  5. As a user, I want to click on a cell and see either x or o appear.
+  6. As a user, I want to be unable to select:
++      - the same cell twice
++      - 2 X's or 2 O's in a row (must alternate)
++      - more than 9 selections in the same game
+  7. As a user, I want to see my score on the screen after each game.
+  8. As a user, I want to decide whether to play again after a game is complete.
+  9. As a user, I want to retrieve a list of game statistics.
+  10. As a user, I want to be able to update game statistics
+  11. As a user, I want to be able to log out of the game.
 
-## Structure
-
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
-
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-To deploy a browser-template based SPA, run `grunt deploy`.
+## Technologies Used
 
 ## Tasks
 

@@ -111,10 +111,10 @@ $(".modal-body").html(scoreHTML)
 $("#myModal").modal('show')
 
 $("#registerForm").css("display", "none")
-gameLogic.resetScoreBoard()
+// gameLogic.resetScoreBoard()
 }
 
-const registerError = function (data) {
+const registerError = function (error) {
   $('.modal-body').html('')
   $("#myModalLabel").html('ERROR')
   const scoreHTML = (`
@@ -150,7 +150,7 @@ $("#logout-message").html(message)
 // gameLogic.resetScoreBoard()
 }
 
-const logoutError = function (data) {
+const logoutError = function (error) {
   $('.modal-body').html('')
   $("#myModalLabel").html('ERROR')
   const scoreHTML = (`
