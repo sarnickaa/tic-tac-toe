@@ -45,10 +45,22 @@ const logout = function () {
   })
 }
 
+const create = function () {
+  console.log('create game ran')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   // login,
   register,
   login,
   pwChange,
-  logout
+  logout,
+  create
 }

@@ -15,8 +15,6 @@ const clear = function() {
 const userLogin = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-
-
   ajax.login(data)
     .then(ui.onLoginSuccess)
     .catch(ui.loginError)
@@ -52,6 +50,12 @@ const userLogout = function (event) {
   .catch(ui.logoutError)
 }
 
+const createGame = function (event) {
+  event.preventDefault()
+  ajax.create()
+  .then(ui.onCreateSuccess)
+  .catch(ui.createError)
+}
 //
 module.exports = {
   clear,
@@ -59,7 +63,8 @@ module.exports = {
   userRegister,
   // userLogin,
   userPwChange,
-  userLogout
+  userLogout,
+  createGame
   // login,
   // register
 }

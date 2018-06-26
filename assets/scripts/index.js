@@ -13,6 +13,7 @@ const ui = require('./ui.js')
 console.log('hi')
 
 $(() => {
+  $("#0").click(gameLogic.inputValue)
   $("#1").click(gameLogic.inputValue)
   $("#2").click(gameLogic.inputValue)
   $("#3").click(gameLogic.inputValue)
@@ -21,7 +22,6 @@ $(() => {
   $("#6").click(gameLogic.inputValue)
   $("#7").click(gameLogic.inputValue)
   $("#8").click(gameLogic.inputValue)
-  $("#9").click(gameLogic.inputValue)
   $("#resetButton").click(gameLogic.resetForm)
   $("#login").on("submit", api.userLogin)
   $("#registerForm").on("submit", api.userRegister)
@@ -29,6 +29,7 @@ $(() => {
   $("#changepw").on("submit", api.userPwChange)
   $("#logoutform").on("submit", api.userLogout)
   $("#get-game").click(ui.appearBoard)
+  $("#createButton").click(api.createGame)
 })
 
 

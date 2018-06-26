@@ -18,16 +18,18 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 
 let playerOne = []
-console.log(playerOne)
+// console.log(playerOne)
 let playerTwo = []
-console.log(playerTwo)
+// console.log(playerTwo)
 let playerOneScore = 0
-console.log(playerOneScore)
+// console.log(playerOneScore)
 let playerTwoScore = 0
-console.log(playerTwoScore)
+// console.log(playerTwoScore)
 let ties = 0
 let counter = 0
-console.log(counter)
+// console.log(counter)
+let gameApiArray = ["", "", "", "", "", "", "", "", ""]
+let over = false
 
 
 // const appearBoard = function (event) {
@@ -36,14 +38,21 @@ console.log(counter)
 //
 // }
 
-const inputValue = function(event) {
+const inputValue = function (event) {
+
   if (counter % 2 === 0) {
-    $(this).val("X")
+    $(this).val("x")
     console.log(this)
     const index = parseInt(($(this).attr('id')), 10)
     playerOne.push(index)
     $(this).data("clicked", true)
     console.log($(this.data))
+    const move = $(this).val()
+
+    gameApiArray.splice(index, 1, move)
+
+    // gameApiArray.push(move)
+    console.log(gameApiArray)
     counter++
     console.log(counter)
     console.log(playerTwo)
@@ -54,11 +63,13 @@ const inputValue = function(event) {
       if (win) {
         playerOneScore++
         ui.scoreUpdate1(playerOneScore)
+        let over = true
         $(".game-board").off('click')
       } else if (!win && (playerOne.length + playerTwo.length === 9)) {
         ties++
         ui.showDraw(ties)
         ui.displayTies(ties)
+        let over = true
         $(".game-board").off('click')
       }
       //
@@ -66,10 +77,14 @@ const inputValue = function(event) {
       console.log('player 1 has scored ' + playerOneScore)
 
   } else {
-    $(this).val("O")
+    $(this).val("o")
     const index = parseInt(($(this).attr('id')), 10)
     playerTwo.push(index)
     $(this).data("clicked", true)
+    const move2 = $(this).val()
+    gameApiArray.splice(index, 1, move2)
+    // gameApiArray.push(move2)
+    console.log(gameApiArray)
     counter++
     console.log(counter)
     preventDouble(event)
@@ -79,11 +94,13 @@ const inputValue = function(event) {
         console.log('player 2 has won ' + win2)
         playerTwoScore++
         ui.scoreUpdate2(playerTwoScore)
+        let over = true
         $(".game-board").off('click')
       } else if (!win2 && (playerOne.length + playerTwo.length === 9)) {
         ties++
         ui.showDraw(ties)
         ui.displayTies(ties)
+        let over = true
         $(".game-board").off('click')
       }
       ui.displayScore2(playerTwoScore)
@@ -131,14 +148,14 @@ const preventDouble = function (event) {
 
 const score = function(array) {
   const winningConditions = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    [3, 6, 9],
-    [1, 5, 9],
-    [3, 5, 7]
+    [0, 4, 8],
+    [2, 4, 8]
   ]
 
   let win = false
@@ -188,6 +205,8 @@ const resetForm = function() {
   debugger
   console.log($(".game-board:text"))
   debugger
+  $("#0").click(inputValue)
+  debugger
   $("#1").click(inputValue)
   debugger
   $("#2").click(inputValue)
@@ -204,14 +223,13 @@ const resetForm = function() {
   debugger
   $("#8").click(inputValue)
   debugger
-  $("#9").click(inputValue)
-  debugger
   counter = 0
   playerOne = []
   console.log(playerOne)
   playerTwo = []
   console.log(playerTwo)
   console.log(counter)
+  gameApiArray = []
 }
 
 const resetScoreBoard = function () {

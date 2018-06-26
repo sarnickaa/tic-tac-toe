@@ -114,7 +114,7 @@ $("#registerForm").css("display", "none")
 // gameLogic.resetScoreBoard()
 }
 
-const registerError = function (error) {
+const registerError = function () {
   $('.modal-body').html('')
   $("#myModalLabel").html('ERROR')
   const scoreHTML = (`
@@ -162,6 +162,19 @@ const logoutError = function (error) {
   $("#myModal").modal('show')
 }
 
+const onCreateSuccess = function (data) {
+  console.log('success' + data)
+  $('.modal-body').html('')
+  $("#myModalLabel").html('Game Created')
+  const scoreHTML = (`
+        <h4>User created New Game</h4>
+        <p>Please Click The Gameboard To Start Playing!</p>
+        <br>
+      `)
+  $(".modal-body").html(scoreHTML)
+  $("#myModal").modal('show')
+}
+
 // <h4>Title: Player 1 Wins!</h4>
 // <br>
 // <p>
@@ -180,5 +193,6 @@ module.exports = {
   onLogoutSuccess,
   logoutError,
   loginError,
-  registerError
+  registerError,
+  onCreateSuccess
 }
