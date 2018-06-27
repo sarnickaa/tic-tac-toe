@@ -10,8 +10,6 @@ const gameLogic = require('./game-logic.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-console.log('hi')
-
 $(() => {
   $("#0").click(gameLogic.inputValue)
   $("#1").click(gameLogic.inputValue)

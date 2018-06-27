@@ -35,20 +35,34 @@ My User Stories for this project are as follows:
 
 ## Planning
 
+My planning began with wireframing. This helped me understand how a user would flow through the app, what types of inputs were required and how many distinct views would need to be generated.
+In terms of data structures, i found arrays best helped me understand and conceptualize how the game logic could be interpreted through code.
+I planned to use formfields if possible for gameboard cells to ease the display/capture of text-based input (X or O).
+I planned to use modals for most of my dynamically generated user-facing messaging.
 
+In terms of the coding, my focus was first on constructing functional game-logic and building a rudimentary UI to ease visualization. Building the game-logic was probably the most enjoyable portion of the project for me. While I enjoyed this part, it did serve to underscore some gaps in my knowledge especially regarding variable scoping, targeting the correct events/returns from functions, the construction of a modular code base, nested loops and higher level logic concerns (like understanding the proper way to score tic tac toe).
+
+Building the logic also forced me to adopt a much more methodical, less reactive approach to problem solving. This was most evident when I encountered a bug in my reset function. Identifying the problem (and eventually, the correct fix) required an extended process of replication and recording to identify exactly what the pattern was and targeting the right returns through console logs and the debugger. This is not an approach that was intuitive or easy for me, but one that I learned by observing other peoples workflows.
+
+Second, I focused on establishing fields for user authentication and linking those interactions to the API.
+
+Finally, I focused on game-based API interactions. This was the most challenging portion of the project for me. Most of my difficulties stemmed from a lack of higer-level understanding regarding the way a server interacts with a client and a failure to properly understand exactly what the API requests were doing in terms of game-play.
+
+My progression through this project relied heavily on the schedule provided. I found it to be very useful in keeping me on track and simplifying what, on the outset, looked like a daunting and very overwhelming task.
+
+I found myself approaching each coding task in a fairly methodical way. I tested often with console logs/the debugger and tried to be as conscientious as possible with commits as each piece of functionality fell into place.
 
 ## Updates
 
 Issued that need to be resolved:
 
-  *UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server.
-  *Bug regarding 'game over' paramater. Is not updating according to win/loss/tie.
-
-
+* UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server. I have tried linking this functionality to login or reset, however, each of these options negativley affects the creation of the empty game object on the server.
 
 ## Additional Functionality
 
 In the future, I would like to include an option where the user can play against the computer.
+
+I would like to go back to refactor my code base to ensure it is as DRY and efficient as possible.
 
 
 ##
