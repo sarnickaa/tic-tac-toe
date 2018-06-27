@@ -106,16 +106,18 @@ const onRegisterSuccess = function(data) {
   $("#registerForm").css("display", "none")
 }
 
-const registerError = function() {
-  $('.modal-body').html('')
-  $("#myModalLabel").html('ERROR')
-  const scoreHTML = (`
+const registerError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('ERROR')
+    const scoreHTML = (`
         <h4>Oh Oh! Something Went Wrong!</h4>
         <p>Try Registering Again</p>
         <br>
       `)
-  $(".modal-body").html(scoreHTML)
-  $("#myModal").modal('show')
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
 }
 
 const onPwSuccess = function() {
@@ -130,6 +132,20 @@ const onPwSuccess = function() {
   $("#myModal").modal('show')
 }
 
+const pwError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('ERROR')
+    const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Try Entering Passwords Again</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
+}
+
 const onLogoutSuccess = function() {
   // console.log('logout success')
   $(".scoreboard").css("display", "none")
@@ -142,15 +158,17 @@ const onLogoutSuccess = function() {
 }
 
 const logoutError = function(error) {
-  $('.modal-body').html('')
-  $("#myModalLabel").html('ERROR')
-  const scoreHTML = (`
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('ERROR')
+    const scoreHTML = (`
         <h4>Oh Oh! Something Went Wrong!</h4>
         <p>Try Logging Out Again</p>
         <br>
       `)
-  $(".modal-body").html(scoreHTML)
-  $("#myModal").modal('show')
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
 }
 
 const onCreateSuccess = function(data) {
@@ -169,6 +187,20 @@ const onCreateSuccess = function(data) {
       `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
+}
+
+const createError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('ERROR')
+    const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Check Your Internet Connection</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
 }
 
 const onGetSuccess = function(data) {
@@ -190,8 +222,36 @@ const onGetSuccess = function(data) {
   $("#myModal").modal('show')
 }
 
+const getError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('ERROR')
+    const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Check Your Internet Connection</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
+}
+
 const onUpdateSuccess = function() {
   console.log('success update')
+}
+
+const updateError = function(error) {
+  if (error) {
+    $('.modal-body').html('')
+    $("#myModalLabel").html('ERROR')
+    const scoreHTML = (`
+        <h4>Oh Oh! Something Went Wrong!</h4>
+        <p>Check Your Internet Connection</p>
+        <br>
+      `)
+    $(".modal-body").html(scoreHTML)
+    $("#myModal").modal('show')
+  }
 }
 
 module.exports = {
@@ -205,11 +265,15 @@ module.exports = {
   onRegisterSuccess,
   onLoginSuccess,
   onPwSuccess,
+  pwError,
   onLogoutSuccess,
   logoutError,
   loginError,
   registerError,
   onCreateSuccess,
+  createError,
   onGetSuccess,
-  onUpdateSuccess
+  getError,
+  onUpdateSuccess,
+  updateError
 }

@@ -22,12 +22,12 @@ My User Stories for this project are as follows:
 
 ## Technologies Used
 
-  *HTML5
-  *CSS3
-  *Bootstrap
-  *JavaScript
-  *JQuery
-  *GoogleFonts
+  * HTML5
+  * CSS3
+  * Bootstrap
+  * JavaScript
+  * JQuery
+  * GoogleFonts
 
   HTML5 was used to build the framework for the app. The app was styled with CSS and modals were created with Bootstrap.
 
@@ -68,7 +68,7 @@ Issued that need to be resolved:
 
 In the future, I would like to include an option where the user can play against the computer.
 
-I would like to go back to refactor my code base to ensure it is as DRY and efficient as possible.
+I would like to go back to refactor my code base to ensure it is as DRY and efficient as possible. I would like to go back and rewrite my functions according to ES6 conventions.
 
 I would like to address the bonus requirements.
 

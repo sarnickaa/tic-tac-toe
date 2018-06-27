@@ -10,7 +10,6 @@ const clear = function() {
   })
 }
 
-
 const userLogin = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
