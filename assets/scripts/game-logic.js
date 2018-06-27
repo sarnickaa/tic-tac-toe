@@ -1,20 +1,5 @@
-// define the function to be run when cell is clicked
-// input X or O
-// send ID of cell clicked to player array
 
-//alternate X and O on clicks - set up counter to determine who's turn it is...
-//if counter % 2 !== 0 - playerOne move: click = X
-//IF counter % 2 === 0 - playerTwo move: click = O
-
-// set up a method to prevention paramaters:
-// player may not click a filled square
-// game total can not be 9 clicks
-// score game after 9th
-//
-
-// set up WIN/LOSS conditions: scoring function
-
-const api = require('./api.js')
+// const api = require('./api.js')
 const ui = require('./ui.js')
 const ajax = require('./ajax.js')
 
@@ -37,7 +22,7 @@ const inputValue = function(event) {
 
   if (counter % 2 === 0) {
     $(this).val("x")
-    console.log(this)
+    // console.log(this)
     const index = parseInt(($(this).attr('id')), 10)
     playerOne.push(index)
     $(this).data("clicked", true)
