@@ -33,7 +33,7 @@ let cells = ["", "", "", "", "", "", "", "", ""]
 let over = false
 // console.log(over)
 
-const inputValue = function (event) {
+const inputValue = function(event) {
 
   if (counter % 2 === 0) {
     $(this).val("x")
@@ -41,7 +41,7 @@ const inputValue = function (event) {
     const index = parseInt(($(this).attr('id')), 10)
     playerOne.push(index)
     $(this).data("clicked", true)
-    console.log($(this.data))
+    // console.log($(this.data))
     const move = $(this).val()
     cells.splice(index, 1, move)
     // console.log(cells)
@@ -64,12 +64,11 @@ const inputValue = function (event) {
       let over = true
       $(".game-board").off('click')
     }
-    ajax.updateGame(index, move, over)
-    .then(ui.onUpdateSuccess)
-    .catch(ui.updateError)
-
     ui.displayScore1(playerOneScore)
-    console.log('player 1 has scored ' + playerOneScore)
+    ajax.updateGame(index, move, over)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.updateError)
+    // console.log('player 1 has scored ' + playerOneScore)
 
   } else {
     $(this).val("o")
@@ -99,13 +98,11 @@ const inputValue = function (event) {
       let over = true
       $(".game-board").off('click')
     }
-
-    ajax.updateGame(index, move2, over)
-    .then(ui.onUpdateSuccess)
-    .catch(ui.updateError)
-
     ui.displayScore2(playerTwoScore)
-    console.log('player 2 has scored ' + playerTwoScore)
+    ajax.updateGame(index, move2, over)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.updateError)
+    // console.log('player 2 has scored ' + playerTwoScore)
   }
 }
 
@@ -149,7 +146,6 @@ const score = function(array) {
   ]
 
   let win = false
-
 
   if (array.length >= 3) {
     // if the players hand is 3 or more:
@@ -217,5 +213,4 @@ module.exports = {
   inputValue,
   resetForm,
   resetScoreBoard
-  // appearBoard
 }

@@ -3,6 +3,7 @@
 # Tic Tac Toe Game Project
 
 ## Overview
+
 My first project at General Assembly is a Single Page Application for the web allowing a user to play Tic Tac Toe.
 
 My User Stories for this project are as follows:
@@ -21,27 +22,33 @@ My User Stories for this project are as follows:
 
 ## Technologies Used
 
+  *HTML5
+  *CSS3
+  *Bootstrap
+  *JavaScript
+  *JQuery
+  *GoogleFonts
+
+  HTML5 was used to build the framework for the app. The app was styled with CSS and modals were created with Bootstrap.
+
+  All game logic was written with JavaScript. JQuery was used for all DOM manipulation, view updates and AJAX calls to the API.
+
+## Planning
 
 
-## Tasks
 
-Developers should run these often!
+## Updates
 
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+Issued that need to be resolved:
 
-## Additional Resources
+  *UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server.
+  *Bug regarding 'game over' paramater. Is not updating according to win/loss/tie.
 
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
 
-## [License](LICENSE)
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+## Additional Functionality
+
+In the future, I would like to include an option where the user can play against the computer.
+
+
+##

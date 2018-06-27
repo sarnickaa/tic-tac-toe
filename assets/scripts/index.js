@@ -32,8 +32,3 @@ $(() => {
   $("#createButton").click(api.createGame)
   $("#getGamesButton").click(api.getGames)
 })
-
-
-// $("#0").click(function () {
-//   $("#0").val("X")
-// })

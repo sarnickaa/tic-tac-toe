@@ -153,7 +153,7 @@ const logoutError = function(error) {
   $("#myModal").modal('show')
 }
 
-const onCreateSuccess = function (data) {
+const onCreateSuccess = function(data) {
   // console.log('success', data)
   store.game = data.game
   // console.log(store.game)
@@ -171,7 +171,7 @@ const onCreateSuccess = function (data) {
   $("#myModal").modal('show')
 }
 
-const onGetSuccess = function (data) {
+const onGetSuccess = function(data) {
   // console.log('success', data.games)
   // console.log(data)
   $('.modal-body').html('')
@@ -185,8 +185,8 @@ const onGetSuccess = function (data) {
         <p>Player Email: ${game.player_x.email}</p>
         <br>
       `)
-      $(".modal-body").append(gameHTML)
-    })
+    $(".modal-body").append(gameHTML)
+  })
   $("#myModal").modal('show')
 }
 

@@ -70,11 +70,8 @@ module.exports = {
   clear,
   userLogin,
   userRegister,
-  // userLogin,
   userPwChange,
   userLogout,
   createGame,
   getGames
-  // login,
-  // register
 }

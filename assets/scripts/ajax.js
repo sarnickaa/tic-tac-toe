@@ -67,7 +67,7 @@ const getUserGames = function() {
   })
 }
 
-const updateGame = function (index, value, over) {
+const updateGame = function(index, value, over) {
   console.log('update ran')
   console.log(index)
   console.log(value)
@@ -91,16 +91,7 @@ const updateGame = function (index, value, over) {
   })
 }
 
-
-// "cell": {
-//   "index": "'"${INDEX}"'",
-//   "value": "'"${VALUE}"'"
-// },
-// "over": "'"${OVER}"'"
-// }
-
 module.exports = {
-  // login,
   register,
   login,
   pwChange,

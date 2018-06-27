@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  margin: 0% 5%;
+  margin: 0 5%;
 }
 
 .header {
@@ -24,6 +24,7 @@ input[type=text] {
   border: 1px solid #ccc;
   cursor: pointer;
   font-size: 2.5em;
+  font-family: 'Monoton', cursive;
 }
 
 .main-game {
@@ -57,6 +58,7 @@ legend {
   box-sizing: border-box;
   margin-bottom: 20px;
   font-size: 1em;
+  font-family: helvetica;
 }
 
 #pw-login {
@@ -71,6 +73,7 @@ legend {
   box-sizing: border-box;
   margin-bottom: 20px;
   font-size: 1em;
+  font-family: helvetica;
 }
 
 #pwconf-register {
@@ -88,11 +91,11 @@ legend {
 }
 
 #login {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #register {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #resetButton {
@@ -137,13 +140,13 @@ margin-bottom: 20px;
 }
 
 button {
-    background-color: #e51f32;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+  background-color: #e51f32;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 button:hover {
