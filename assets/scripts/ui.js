@@ -3,10 +3,8 @@ const store = require('./store.js')
 
 
 const appearBoard = function() {
-  // event.preventDefault()
   $(".main-game").css("display", "block")
   $(".scoreboard").css("display", "flex")
-  // $("#get-game").css("display", "none")
 }
 
 const scoreUpdate1 = function(score) {
@@ -64,25 +62,24 @@ const displayTies = function(score) {
 }
 
 const onLoginSuccess = function(data) {
-  console.log('login success')
-  console.log(data)
-
+  // console.log('login success')
+  // console.log(data)
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
       <h4>User Logged In</h4>
+      <p>Please Press Create New Game If You Want To Save Your Moves</p>
       <br>
     `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
-  // $(".game-portal").css("display", "block")
   $(".login").css("display", "none")
   appearBoard()
   store.user = data.user
 }
 
 const loginError = function(data) {
-  console.log('error')
+  // console.log('error')
   $('.modal-body').html('')
   $("#myModalLabel").html('ERROR')
   const scoreHTML = (`
@@ -95,10 +92,8 @@ const loginError = function(data) {
 }
 
 const onRegisterSuccess = function(data) {
-  // TODO - generate get-game button on this screen
-  console.log('success')
-  console.log(data)
-
+  // console.log('success')
+  // console.log(data)
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
@@ -108,9 +103,7 @@ const onRegisterSuccess = function(data) {
     `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
-
   $("#registerForm").css("display", "none")
-  // gameLogic.resetScoreBoard()
 }
 
 const registerError = function() {
@@ -126,7 +119,7 @@ const registerError = function() {
 }
 
 const onPwSuccess = function() {
-  console.log('pw changed successfully')
+  // console.log('pw changed successfully')
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
@@ -138,7 +131,7 @@ const onPwSuccess = function() {
 }
 
 const onLogoutSuccess = function() {
-  console.log('logout success')
+  // console.log('logout success')
   $(".scoreboard").css("display", "none")
   $(".main-game").css("display", "none")
   const message = (`
@@ -146,7 +139,6 @@ const onLogoutSuccess = function() {
   <h3>Thanks For Playing TicTacToe!</h3>
   `)
   $("#logout-message").html(message)
-  // gameLogic.resetScoreBoard()
 }
 
 const logoutError = function(error) {
@@ -162,13 +154,12 @@ const logoutError = function(error) {
 }
 
 const onCreateSuccess = function (data) {
-  console.log('success', data)
+  // console.log('success', data)
   store.game = data.game
-  console.log(store.game)
-  console.log(data.game)
-  console.log(data.game.id)
-  console.log(store.game.id)
-  // store.game.id = data.game.id
+  // console.log(store.game)
+  // console.log(data.game)
+  // console.log(data.game.id)
+  // console.log(store.game.id)
   $('.modal-body').html('')
   $("#myModalLabel").html('Game Created')
   const scoreHTML = (`
@@ -181,33 +172,27 @@ const onCreateSuccess = function (data) {
 }
 
 const onGetSuccess = function (data) {
-  console.log('success', data.games)
-  console.log(data)
+  // console.log('success', data.games)
+  // console.log(data)
   $('.modal-body').html('')
   $("#myModalLabel").html('Games Retrieved')
-
   data.games.forEach(function(game) {
     const gameHTML = (`
-        <h4>User Games:</h4>
-        <p>${game.id}</p>
-        <p>${game.cells}</p>
-        <p>${game.over}</p>
+        <p>Game ID: ${game.id}</p>
+        <p>Game Moves: ${game.cells}</p>
+        <p>Game Over: ${game.over}</p>
+        <p>Player ID: ${game.player_x.id}</p>
+        <p>Player Email: ${game.player_x.email}</p>
         <br>
       `)
       $(".modal-body").append(gameHTML)
     })
   $("#myModal").modal('show')
-
-  // $("#data-print").html(scoreHTML)
 }
 
 const onUpdateSuccess = function() {
   console.log('success update')
 }
-
-// <h4>Title: Player 1 Wins!</h4>
-// <br>
-// <p>
 
 module.exports = {
   scoreUpdate1,

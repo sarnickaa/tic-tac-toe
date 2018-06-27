@@ -17,6 +17,7 @@ const userLogin = function(event) {
   ajax.login(data)
     .then(ui.onLoginSuccess)
     .catch(ui.loginError)
+
 }
 
 const userRegister = function(event) {
@@ -40,6 +41,7 @@ const userPwChange = function(event) {
   ajax.pwChange(data)
     .then(ui.onPwSuccess)
     .catch(ui.pwError)
+  $("#changepw")[0].reset()
 }
 
 const userLogout = function(event) {

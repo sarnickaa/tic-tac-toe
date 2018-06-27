@@ -31,14 +31,7 @@ let counter = 0
 // console.log(counter)
 let cells = ["", "", "", "", "", "", "", "", ""]
 let over = false
-console.log(over)
-
-
-// const appearBoard = function (event) {
-//     event.preventDefault()
-//     // function to redirect to api.js for log in ajax calls
-//
-// }
+// console.log(over)
 
 const inputValue = function (event) {
 
@@ -51,20 +44,14 @@ const inputValue = function (event) {
     console.log($(this.data))
     const move = $(this).val()
     cells.splice(index, 1, move)
-
-    ajax.updateGame(index, move, over)
-    .then(ui.onUpdateSuccess)
-    .catch(ui.updateError)
-
-    // gameApiArray.push(move)
-    console.log(cells)
+    // console.log(cells)
     counter++
-    console.log(counter)
-    console.log(playerTwo)
+    // console.log(counter)
+    // console.log(playerTwo)
     preventDouble(event)
     paramaters(counter)
     let win = score(playerOne)
-    console.log('player 1 has won ' + win)
+    // console.log('player 1 has won ' + win)
     if (win) {
       playerOneScore++
       ui.scoreUpdate1(playerOneScore)
@@ -77,7 +64,10 @@ const inputValue = function (event) {
       let over = true
       $(".game-board").off('click')
     }
-    //
+    ajax.updateGame(index, move, over)
+    .then(ui.onUpdateSuccess)
+    .catch(ui.updateError)
+
     ui.displayScore1(playerOneScore)
     console.log('player 1 has scored ' + playerOneScore)
 
@@ -88,21 +78,16 @@ const inputValue = function (event) {
     $(this).data("clicked", true)
     const move2 = $(this).val()
     cells.splice(index, 1, move2)
-    console.log(index)
-    console.log(move2)
-
-    ajax.updateGame(index, move2, over)
-    .then(ui.onUpdateSuccess)
-    .catch(ui.updateError)
-    // gameApiArray.push(move2)
-    console.log(cells)
+    // console.log(index)
+    // console.log(move2)
+    // console.log(cells)
     counter++
-    console.log(counter)
+    // console.log(counter)
     preventDouble(event)
     paramaters(counter)
     let win2 = score(playerTwo)
     if (win2) {
-      console.log('player 2 has won ' + win2)
+      // console.log('player 2 has won ' + win2)
       playerTwoScore++
       ui.scoreUpdate2(playerTwoScore)
       let over = true
@@ -114,9 +99,13 @@ const inputValue = function (event) {
       let over = true
       $(".game-board").off('click')
     }
+
+    ajax.updateGame(index, move2, over)
+    .then(ui.onUpdateSuccess)
+    .catch(ui.updateError)
+
     ui.displayScore2(playerTwoScore)
     console.log('player 2 has scored ' + playerTwoScore)
-    // draw(playerOne, playerTwo)
   }
 }
 
@@ -131,16 +120,6 @@ const preventDouble = function(event) {
     $(event.target).off()
   }
 }
-
-// const draw = function (array1, array2) {
-//   if (array1.length + array2.length === 9 && ) {
-//     console.log('we tied!')
-//     ties++
-//     console.log(ties)
-//     ui.showDraw(ties)
-//   }
-// }
-
 
 // checkWin function must:
 // check player arrays against winning conditions
@@ -208,39 +187,25 @@ const score = function(array) {
 }
 
 const resetForm = function() {
-  // debugger
   $(".game-board:text").val("")
-  debugger
   $(".game-board:text").removeData("clicked")
   $(".game-board:text").off()
-  debugger
-  console.log($(".game-board:text"))
-  debugger
+  // console.log($(".game-board:text"))
   $("#0").click(inputValue)
-  debugger
   $("#1").click(inputValue)
-  debugger
   $("#2").click(inputValue)
-  debugger
   $("#3").click(inputValue)
-  debugger
   $("#4").click(inputValue)
-  debugger
   $("#5").click(inputValue)
-  debugger
   $("#6").click(inputValue)
-  debugger
   $("#7").click(inputValue)
-  debugger
   $("#8").click(inputValue)
-  debugger
   counter = 0
   playerOne = []
-  console.log(playerOne)
+  // console.log(playerOne)
   playerTwo = []
-  console.log(playerTwo)
-  console.log(counter)
-  // cells = ["", "", "", "", "", "", "", "", ""]
+  // console.log(playerTwo)
+  // console.log(counter)
 }
 
 const resetScoreBoard = function() {

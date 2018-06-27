@@ -3,7 +3,7 @@
 # Tic Tac Toe Game Project
 
 ## Overview
-For my first project at General Assembly, I was asked to build a Single Page Application for the web allowing one user to play Tic Tac Toe against another user.
+My first project at General Assembly is a Single Page Application for the web allowing a user to play Tic Tac Toe.
 
 My User Stories for this project are as follows:
 
@@ -12,17 +12,16 @@ My User Stories for this project are as follows:
   3. As a user once registered, I want to be able to log in to play.
   4. As a user, I want to be able to change my password once logged in.
   5. As a user, I want to click on a cell and see either x or o appear.
-  6. As a user, I want to be unable to select:
-+      - the same cell twice
-+      - 2 X's or 2 O's in a row (must alternate)
-+      - more than 9 selections in the same game
+  6. As a user, I want to be unable to select the same cell twice, 2 X's or 2 O's in a row (must alternate) or have more than 9 selections in the same game
   7. As a user, I want to see my score on the screen after each game.
   8. As a user, I want to decide whether to play again after a game is complete.
   9. As a user, I want to retrieve a list of game statistics.
-  10. As a user, I want to be able to update game statistics
+  10. As a user, I want to be able to log my moves.
   11. As a user, I want to be able to log out of the game.
 
 ## Technologies Used
+
+
 
 ## Tasks
 

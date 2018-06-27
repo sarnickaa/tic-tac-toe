@@ -5,33 +5,11 @@ body {
   margin: 0% 5%;
 }
 
-// .wrapper {
-//   display: flex;
-//   background-color: pink;
-//   flex-direction: column;
-// }
-
-.main-game {
-  // background-color: yellow;
-  padding: 30px;
-}
-
 .header {
-  // background-color: red;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
-  // margin-top: 10px;
   display: flex;
   justify-content: center;
-}
-
-// h1 {
-//   text-align: center;
-// }
-
-.main-game {
-  display: block;
-  text-align: center;
 }
 
 .form {
@@ -50,36 +28,24 @@ input[type=text] {
 
 .main-game {
   display: none;
+  padding: 20px;
+  text-align: center;
 }
-// to toggle display later
 
 .login {
   display: block;
   text-align: center;
 }
 
-// input[type=text].login {
-//   padding: 5px;
-//   box-sizing: border-box;
-//   margin: 5px;
-//   border-radius: 3px;
-//   border: 1px solid #ccc;
-//   // cursor: pointer;
-//   font-size: 1.5em;
-// }
-
 .scoreboard {
   display: none;
   justify-content: center;
   text-align: center;
-  // background: pink;
 }
 
 .scoreboard > h4 {
   margin: 20px 10px 0 20px;
-  // background: orange;
 }
-
 
 legend {
   margin-top: 10px;
@@ -129,28 +95,20 @@ margin-bottom: 20px;
 margin-bottom: 20px;
 }
 
-// .game-portal {
-//   display: none;
-//   text-align: center;
-// }
-
 #resetButton {
-  // margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
   display: inline;
 }
 
 #getGamesButton {
-  // margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-right: 10px;
   display: inline;
 }
 
 #createButton {
-  // margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-right: 10px;
   display: inline;
 }
@@ -158,7 +116,6 @@ margin-bottom: 20px;
 .changepw {
   display: inline;
   text-align: center;
-  // margin: 20px;
 }
 
 #pw-change {
@@ -180,19 +137,25 @@ margin-bottom: 20px;
 }
 
 button {
-    background-color: #e51f32; /* Green */
+    background-color: #e51f32;
     border: none;
-    border-radius: 8px;
     color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    // font-size: 16px;
+}
+
+button:hover {
+  background-color: black;
 }
 
 #logoutbutton {
   background-color: black;
+}
+
+#logoutbutton:hover {
+  background-color: #e51f32;
 }
 
 #logoutform {
