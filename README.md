@@ -57,7 +57,6 @@ I found myself approaching each coding task in a fairly methodical way. I tested
 Issued that need to be resolved:
 
 * UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server. I have tried linking this functionality to login or reset, however, each of these options negativley affects the creation of the empty game object on the server.
-* There is a slight jump in the UI when the score updates. This must be smoothed out.
 
 ## Additional Functionality
 
