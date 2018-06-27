@@ -36,6 +36,11 @@ My User Stories for this project are as follows:
 ## Planning
 
 My planning began with wireframing. This helped me understand how a user would flow through the app, what types of inputs were required and how many distinct views would need to be generated.
+
+![wireframe_0](https://media.git.generalassemb.ly/user/11649/files/91c1eefe-7a2d-11e8-9f30-888cbaf5e065)
+![wireframe_1](https://media.git.generalassemb.ly/user/11649/files/91e0356c-7a2d-11e8-8f1a-1be1047064cc)
+![wireframe_2](https://media.git.generalassemb.ly/user/11649/files/91fa0122-7a2d-11e8-94aa-a8fa52671713)
+
 In terms of data structures, i found arrays best helped me understand and conceptualize how the game logic could be interpreted through code.
 I planned to use formfields if possible for gameboard cells to ease the display/capture of text-based input (X or O).
 I planned to use modals for most of my dynamically generated user-facing messaging.
@@ -56,13 +61,16 @@ I found myself approaching each coding task in a fairly methodical way. I tested
 
 Issued that need to be resolved:
 
-* UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server. I have tried linking this functionality to login or reset, however, each of these options negativley affects the creation of the empty game object on the server.
+* UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server. I have tried linking this functionality to login or reset, however, each of these options negativley affects the creation of the empty game object on the server. I would like to resolve this issue in future iterations.
+* Allow a user to declare a 'quit' state if a game is abandoned. At present, abandoned games do show an 'over' state of false - however, unless the user clicks a button to create a new game - i have no way of preventing further (valid) clicks on abandoned games.
 
 ## Additional Functionality
 
 In the future, I would like to include an option where the user can play against the computer.
 
 I would like to go back to refactor my code base to ensure it is as DRY and efficient as possible.
+
+I would like to address the bonus requirements.
 
 
 ##

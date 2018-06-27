@@ -3,9 +3,9 @@ const store = require('./store.js')
 const ui = require('./ui.js')
 
 const register = function(data) {
-  console.log(data)
-  console.log(config.apiUrl)
-  console.log('ajax request gettin ' + data)
+  // console.log(data)
+  // console.log(config.apiUrl)
+  // console.log('ajax request gettin ' + data)
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -14,9 +14,9 @@ const register = function(data) {
 }
 
 const login = function(data) {
-  console.log(data)
-  console.log(config.apiUrl)
-  console.log('ajax login request getting ' + data)
+  // console.log(data)
+  // console.log(config.apiUrl)
+  // console.log('ajax login request getting ' + data)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -46,7 +46,7 @@ const logout = function() {
 }
 
 const create = function() {
-  console.log('create game ran')
+  // console.log('create game ran')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -57,7 +57,7 @@ const create = function() {
 }
 
 const getUserGames = function() {
-  console.log('get game ran')
+  // console.log('get game ran')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
@@ -68,10 +68,10 @@ const getUserGames = function() {
 }
 
 const updateGame = function(index, value, over) {
-  console.log('update ran')
-  console.log(index)
-  console.log(value)
-  console.log(over)
+  // console.log('update ran')
+  // console.log(index)
+  // console.log(value)
+  // console.log(over)
   // console.log(store.game.id)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,

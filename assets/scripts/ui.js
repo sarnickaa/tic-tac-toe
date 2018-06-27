@@ -68,7 +68,7 @@ const onLoginSuccess = function(data) {
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
       <h4>User Logged In</h4>
-      <p>Please Press Create New Game If You Want To Save Your Moves</p>
+      <p>Click 'Create Saved Game' If You Want To Save Your Moves</p>
       <br>
     `)
   $(".modal-body").html(scoreHTML)
