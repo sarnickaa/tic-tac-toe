@@ -101,6 +101,7 @@ const paramaters = function(counter) {
 const preventDouble = function(event) {
   if ($(event.target).data("clicked") === true) {
     $(event.target).off()
+    // $(event.target).css("cursor", "default")
   }
 }
 
