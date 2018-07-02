@@ -2,6 +2,7 @@
 // const api = require('./api.js')
 const ui = require('./ui.js')
 const ajax = require('./ajax.js')
+const api = require('./api.js')
 
 let playerOne = []
 // console.log(playerOne)
@@ -170,6 +171,8 @@ const score = function(array) {
 }
 
 const resetForm = function() {
+
+  // api.clearGame()
   $(".game-board:text").val("")
   $(".game-board:text").removeData("clicked")
   $(".game-board:text").off()
@@ -189,6 +192,7 @@ const resetForm = function() {
   playerTwo = []
   // console.log(playerTwo)
   // console.log(counter)
+  // api.createGame()
 }
 
 const resetScoreBoard = function() {

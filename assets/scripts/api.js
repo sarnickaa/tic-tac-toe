@@ -66,6 +66,13 @@ const getGames = function(event) {
     .catch(ui.getError)
 }
 
+// const clearGame = function(event){
+//   // event.preventDefault()
+//   ajax.emptyGame()
+//     .then(ui.onClearSuccess)
+//     .catch(ui.onClearError)
+//   }
+
 //
 module.exports = {
   clear,
@@ -75,4 +82,5 @@ module.exports = {
   userLogout,
   createGame,
   getGames
+  // clearGame
 }

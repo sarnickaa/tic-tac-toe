@@ -1,5 +1,6 @@
 const gameLogic = require('./game-logic.js')
 const store = require('./store.js')
+// const api = require('./api.js')
 
 
 const appearBoard = function() {
@@ -76,7 +77,8 @@ const onLoginSuccess = function(data) {
   $(".login").css("display", "none")
   appearBoard()
   store.user = data.user
-}
+  // api.createGame()
+  }
 
 const loginError = function(data) {
   // console.log('error')
@@ -151,6 +153,7 @@ const onLogoutSuccess = function() {
   $(".scoreboard").css("display", "none")
   $(".main-game").css("display", "none")
   $(".login").css("display", "block")
+  // $("#loginblock").css("display", "block")
 
   $('.modal-body').html('')
   $("#myModalLabel").html('User Logged out')
@@ -260,6 +263,14 @@ const updateError = function(error) {
   }
 }
 
+const onClearSuccess = function() {
+  console.log("success")
+}
+
+const onClearError = function () {
+  console.log("fail")
+}
+
 module.exports = {
   scoreUpdate1,
   scoreUpdate2,
@@ -281,5 +292,7 @@ module.exports = {
   onGetSuccess,
   getError,
   onUpdateSuccess,
-  updateError
+  updateError,
+  onClearError,
+  onClearSuccess
 }

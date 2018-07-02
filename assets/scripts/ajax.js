@@ -91,6 +91,41 @@ const updateGame = function(index, value, over) {
   })
 }
 
+// const emptyGame = function () {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/' + store.game.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//       "game": {
+//         "cell": {
+//           "index": 0,
+//           "value": "",
+//           "index": 1,
+//           "value": "",
+//           "index": 2,
+//           "value": "",
+//           "index": 3,
+//           "value": "",
+//           "index": 4,
+//           "value": "",
+//           "index": 5,
+//           "value": "",
+//           "index": 6,
+//           "value": "",
+//           "index": 7,
+//           "value": "",
+//           "index": 8,
+//           "value": ""
+//         },
+//         "over": false
+//       }
+//     }
+//   })
+// }
+
 module.exports = {
   register,
   login,
@@ -99,4 +134,5 @@ module.exports = {
   create,
   getUserGames,
   updateGame
+  // emptyGame
 }
