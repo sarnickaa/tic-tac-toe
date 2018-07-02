@@ -4,9 +4,17 @@ const store = require('./store.js')
 
 
 const appearBoard = function() {
-  $(".main-game").css("display", "block")
+
   $(".scoreboard").css("display", "flex")
+  $(".main-game").css("display", "block")
+  // $("#gameboard").css("display", "none")
+  // gameLogic.resetScoreBoard()
 }
+
+// const appearGameBoard = function () {
+//   $("#gameboard").css("display", "block")
+//   api.createGame()
+// }
 
 const scoreUpdate1 = function(score) {
   $('.modal-body').html('')
@@ -77,6 +85,8 @@ const onLoginSuccess = function(data) {
   $(".login").css("display", "none")
   appearBoard()
   store.user = data.user
+  $("#p2s").html('')
+  $("#p1s").html('')
   // api.createGame()
   }
 
@@ -153,6 +163,8 @@ const onLogoutSuccess = function() {
   $(".scoreboard").css("display", "none")
   $(".main-game").css("display", "none")
   $(".login").css("display", "block")
+  $("#registerForm").css("display", "block")
+  // $("#loginForm").css("display", "block")
   // $("#loginblock").css("display", "block")
 
   $('.modal-body').html('')
@@ -295,4 +307,5 @@ module.exports = {
   updateError,
   onClearError,
   onClearSuccess
+  // appearGameBoard
 }

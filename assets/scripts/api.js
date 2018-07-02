@@ -2,6 +2,14 @@ const ui = require('./ui.js')
 const ajax = require('./ajax.js')
 const getFormFields = require('../../lib/get-form-fields')
 
+const createGame = function(event) {
+  // event.preventDefault()
+  console.log("i got here!")
+  ajax.create()
+    .then(ui.onCreateSuccess)
+    .catch(ui.createError)
+}
+
 const clear = function() {
   $("#email, #pw, #pwconf").focus(function() {
     if ($(this).attr("value") !== "") {
@@ -15,6 +23,7 @@ const userLogin = function(event) {
   const data = getFormFields(this)
   ajax.login(data)
     .then(ui.onLoginSuccess)
+    .then(createGame)
     .catch(ui.loginError)
     $("#loginForm")[0].reset()
 
@@ -52,12 +61,7 @@ const userLogout = function(event) {
     .catch(ui.logoutError)
 }
 
-const createGame = function(event) {
-  event.preventDefault()
-  ajax.create()
-    .then(ui.onCreateSuccess)
-    .catch(ui.createError)
-}
+
 
 const getGames = function(event) {
   event.preventDefault()
