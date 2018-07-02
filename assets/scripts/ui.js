@@ -150,11 +150,17 @@ const onLogoutSuccess = function() {
   // console.log('logout success')
   $(".scoreboard").css("display", "none")
   $(".main-game").css("display", "none")
+  $(".login").css("display", "block")
+
+  $('.modal-body').html('')
+  $("#myModalLabel").html('User Logged out')
   const message = (`
   <h4>User Logged out</h4>
   <h3>Thanks For Playing TicTacToe!</h3>
   `)
-  $("#logout-message").html(message)
+  // $("#logout-message").html(message)
+  $(".modal-body").html(message)
+  $("#myModal").modal('show')
 }
 
 const logoutError = function(error) {
