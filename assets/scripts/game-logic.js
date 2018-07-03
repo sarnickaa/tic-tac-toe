@@ -8,11 +8,11 @@ let playerOne = []
 // console.log(playerOne)
 let playerTwo = []
 // console.log(playerTwo)
-let playerOneScore = 0
+// let playerOneScore = 0
 // console.log(playerOneScore)
-let playerTwoScore = 0
+// let playerTwoScore = 0
 // console.log(playerTwoScore)
-let ties = 0
+// let ties = 0
 let counter = 0
 // console.log(counter)
 let cells = ["", "", "", "", "", "", "", "", ""]
@@ -40,18 +40,18 @@ const inputValue = function(event) {
     let win = score(playerOne)
     // console.log('player 1 has won ' + win)
     if (win) {
-      playerOneScore++
-      ui.scoreUpdate1(playerOneScore)
+      // playerOneScore++
+      ui.scoreUpdate1()
       over = true
       $(".game-board").off('click')
     } else if (!win && (playerOne.length + playerTwo.length === 9)) {
-      ties++
-      ui.showDraw(ties)
-      ui.displayTies(ties)
+      // ties++
+      ui.showDraw()
+      // ui.displayTies(ties)
       over = true
       $(".game-board").off('click')
     }
-    ui.displayScore1(playerOneScore)
+    // ui.displayScore1(playerOneScore)
     ajax.updateGame(index, move, over)
       .then(ui.onUpdateSuccess)
       .catch(ui.updateError)
@@ -75,18 +75,18 @@ const inputValue = function(event) {
     let win2 = score(playerTwo)
     if (win2) {
       // console.log('player 2 has won ' + win2)
-      playerTwoScore++
-      ui.scoreUpdate2(playerTwoScore)
+      // playerTwoScore++
+      ui.scoreUpdate2()
       over = true
       $(".game-board").off('click')
     } else if (!win2 && (playerOne.length + playerTwo.length === 9)) {
-      ties++
-      ui.showDraw(ties)
-      ui.displayTies(ties)
+      // ties++
+      ui.showDraw()
+      // ui.displayTies(ties)
       over = true
       $(".game-board").off('click')
     }
-    ui.displayScore2(playerTwoScore)
+    // ui.displayScore2(playerTwoScore)
     ajax.updateGame(index, move2, over)
       .then(ui.onUpdateSuccess)
       .catch(ui.updateError)

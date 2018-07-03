@@ -1,17 +1,216 @@
 // const gameLogic = require('./game-logic.js')
 const store = require('./store.js')
+const config = require('./config.js')
 
 // console.log(gameLogic)
 // console.log(store)
 // const api = require('./api.js')
 
-let playerOneScore = 0
-let playerTwoScore = 0
+// let playerOneScore = 0
+// let playerTwoScore = 0
 
-const resetScoreBoard = function() {
-  playerOneScore = 0
-  playerTwoScore = 0
+// const resetScoreBoard = function() {
+//   playerOneScore = 0
+//   playerTwoScore = 0
+// }
+
+let playerOne = []
+// console.log(playerOne)
+let playerTwo = []
+// console.log(playerTwo)
+// let playerOneScore = 0
+// console.log(playerOneScore)
+// let playerTwoScore = 0
+// console.log(playerTwoScore)
+// let ties = 0
+let counter = 0
+let over = false
+
+const inputValue = function(event) {
+
+  if (counter % 2 === 0) {
+    $(this).val("x")
+    // console.log(this)
+    const index = parseInt(($(this).attr('id')), 10)
+    playerOne.push(index)
+    $(this).data("clicked", true)
+    // console.log($(this.data))
+    const move = $(this).val()
+    // cells.splice(index, 1, move)
+    // console.log(cells)
+    counter++
+    over = false
+    // console.log(counter)
+    // console.log(playerTwo)
+    preventDouble(event)
+    paramaters(counter)
+    let win = score(playerOne)
+    // console.log('player 1 has won ' + win)
+    if (win) {
+      // playerOneScore++
+      scoreUpdate1()
+      over = true
+      $(".game-board").off('click')
+    } else if (!win && (playerOne.length + playerTwo.length === 9)) {
+      // ties++
+      showDraw()
+      // ui.displayTies(ties)
+      over = true
+      $(".game-board").off('click')
+    }
+    // ui.displayScore1(playerOneScore)
+    updateGame(index, move, over)
+      .then(onUpdateSuccess)
+      .catch(updateError)
+    // console.log('player 1 has scored ' + playerOneScore)
+
+  } else {
+    $(this).val("o")
+    const index = parseInt(($(this).attr('id')), 10)
+    playerTwo.push(index)
+    $(this).data("clicked", true)
+    const move2 = $(this).val()
+    // cells.splice(index, 1, move2)
+    // console.log(index)
+    // console.log(move2)
+    // console.log(cells)
+    over = false
+    counter++
+    // console.log(counter)
+    preventDouble(event)
+    paramaters(counter)
+    let win2 = score(playerTwo)
+    if (win2) {
+      // console.log('player 2 has won ' + win2)
+      // playerTwoScore++
+      scoreUpdate2()
+      over = true
+      $(".game-board").off('click')
+    } else if (!win2 && (playerOne.length + playerTwo.length === 9)) {
+      // ties++
+      showDraw()
+      // ui.displayTies(ties)
+      over = true
+      $(".game-board").off('click')
+    }
+    // ui.displayScore2(playerTwoScore)
+    updateGame(index, move2, over)
+      .then(onUpdateSuccess)
+      .catch(updateError)
+  }
 }
+
+const paramaters = function(counter) {
+  if (counter > 9) {
+    $(".game-board").off('click')
+  }
+}
+
+const preventDouble = function(event) {
+  if ($(event.target).data("clicked") === true) {
+    $(event.target).off()
+    // $(event.target).css("cursor", "default")
+  }
+}
+
+const score = function(array) {
+  const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
+
+  let win = false
+
+  if (array.length >= 3) {
+    // if the players hand is 3 or more:
+    for (let i = 0; i < winningConditions.length; i++) {
+      let winningArraySet = winningConditions[i]
+      let winningArraySetFound = true
+      // loop through all the sets in the winningConditions array
+      for (let j = 0; j < winningArraySet.length; j++) {
+        // for each array: loop over each number in the winningArraySet
+        let numberFound = false
+        // establish numberFound as a boolean to be changed later if number found
+        for (let k = 0; k < array.length; k++) {
+          // for each number in the players array:
+          if (winningArraySet[j] === array[k]) {
+            numberFound = true
+            break
+            // exit the loop if number is found
+          }
+        }
+        if (numberFound === false) {
+          winningArraySetFound = false
+          // console.log('no match')
+          break
+        }
+      }
+      if (winningArraySetFound === true) {
+        win = true
+        // console.log('win')
+        break
+      }
+    }
+  }
+  console.log(counter)
+  return win
+}
+
+const resetForm = function() {
+
+  // api.clearGame()
+  $(".game-board:text").val("")
+  $(".game-board:text").removeData("clicked")
+  $(".game-board:text").off()
+  // console.log($(".game-board:text"))
+  $("#0").click(inputValue)
+  $("#1").click(inputValue)
+  $("#2").click(inputValue)
+  $("#3").click(inputValue)
+  $("#4").click(inputValue)
+  $("#5").click(inputValue)
+  $("#6").click(inputValue)
+  $("#7").click(inputValue)
+  $("#8").click(inputValue)
+  counter = 0
+  playerOne = []
+  // console.log(playerOne)
+  playerTwo = []
+  // console.log(playerTwo)
+  // console.log(counter)
+  // api.createGame()
+}
+
+const updateGame = function(index, value, over) {
+  // console.log('update ran')
+  // console.log(index)
+  // console.log(value)
+  // console.log(over)
+  // console.log(store.game.id)
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      "game": {
+        "cell": {
+          "index": `${index}`,
+          "value": `${value}`
+        },
+        "over": `${over}`
+      }
+    }
+  })
+}
+
 
 const appearBoard = function() {
 
@@ -26,59 +225,56 @@ const appearBoard = function() {
 //   api.createGame()
 // }
 
-const scoreUpdate1 = function(score) {
+const scoreUpdate1 = function() {
   $('.modal-body').html('')
   const scoreHTML = (`
           <h4>Player 1 Wins!</h4>
-          <p>Player 1 Score Is ${score}</p>
           <br>
         `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
 }
 
-const scoreUpdate2 = function(score) {
+const scoreUpdate2 = function() {
   $('.modal-body').html('')
   const score2HTML = (`
         <h4>Player 2 Wins!</h4>
-        <p>Player 2 Score Is ${score}</p>
         <br>
       `)
   $(".modal-body").html(score2HTML)
   $("#myModal").modal('show')
 }
 
-const showDraw = function(score) {
+const showDraw = function() {
   $('.modal-body').html('')
   const scoreHTML = (`
         <h4>We Tied!</h4>
-        <p>Tie Games: ${score}</p>
         <br>
       `)
   $(".modal-body").html(scoreHTML)
   $("#myModal").modal('show')
 }
 
-const displayScore1 = function(score) {
-  const scoreHTML = (`
-    <h3>${score}</h3>
-    `)
-  $("#p1s").html(scoreHTML)
-}
+// const displayScore1 = function(score) {
+//   const scoreHTML = (`
+//     <h3>${score}</h3>
+//     `)
+//   $("#p1s").html(scoreHTML)
+// }
 
-const displayScore2 = function(score) {
-  const scoreHTML = (`
-    <h3>${score}</h3>
-    `)
-  $("#p2s").html(scoreHTML)
-}
-
-const displayTies = function(score) {
-  const scoreHTML = (`
-    <h3>${score}</h3>
-    `)
-  $("#ts").html(scoreHTML)
-}
+// const displayScore2 = function(score) {
+//   const scoreHTML = (`
+//     <h3>${score}</h3>
+//     `)
+//   $("#p2s").html(scoreHTML)
+// }
+//
+// const displayTies = function(score) {
+//   const scoreHTML = (`
+//     <h3>${score}</h3>
+//     `)
+//   $("#ts").html(scoreHTML)
+// }
 
 const onLoginSuccess = function(data) {
   // console.log('login success')
@@ -95,11 +291,12 @@ const onLoginSuccess = function(data) {
   $(".login").css("display", "none")
   appearBoard()
   store.user = data.user
-  $("#p2s").html('')
-  $("#p1s").html('')
-  resetScoreBoard()
-  console.log(playerOneScore)
-  console.log(playerTwoScore)
+  resetForm()
+  // $("#p2s").html('')
+  // $("#p1s").html('')
+  // resetScoreBoard()
+  // console.log(playerOneScore)
+  // console.log(playerTwoScore)
   // gameLogic.resetScoreBoard()
   // api.createGame()
   }
@@ -310,9 +507,9 @@ const updateError = function(error) {
   }
 }
 
-const onClearSuccess = function() {
-  console.log("success")
-}
+// const onClearSuccess = function() {
+//   console.log("success")
+// }
 
 const onClearError = function () {
   console.log("fail")
@@ -322,9 +519,9 @@ module.exports = {
   scoreUpdate1,
   scoreUpdate2,
   showDraw,
-  displayScore1,
-  displayScore2,
-  displayTies,
+  // displayScore1,
+  // displayScore2,
+  // displayTies,
   appearBoard,
   onRegisterSuccess,
   onLoginSuccess,
@@ -340,7 +537,7 @@ module.exports = {
   getError,
   onUpdateSuccess,
   updateError,
-  onClearError,
-  onClearSuccess
+  onClearError
+  // onClearSuccess
   // appearGameBoard
 }
