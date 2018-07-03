@@ -195,13 +195,13 @@ const resetForm = function() {
   // api.createGame()
 }
 
-const resetScoreBoard = function() {
-  playerOneScore = 0
-  playerTwoScore = 0
-}
+// const resetScoreBoard = function() {
+//   playerOneScore = 0
+//   playerTwoScore = 0
+// }
 
 module.exports = {
   inputValue,
-  resetForm,
-  resetScoreBoard
+  resetForm
+  // resetScoreBoard
 }

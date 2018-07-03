@@ -1,5 +1,6 @@
 const ui = require('./ui.js')
 const ajax = require('./ajax.js')
+// const gameLogic = require('./game-logic')
 const getFormFields = require('../../lib/get-form-fields')
 
 const createGame = function(event) {
@@ -58,6 +59,10 @@ const userLogout = function(event) {
   event.preventDefault()
   ajax.logout()
     .then(ui.onLogoutSuccess)
+    // .then(gameLogic.resetForm)
+    // console.log('reset logout')
+    // .then(gameLogic.resetScoreBoard)
+    // console.log('reset score')
     .catch(ui.logoutError)
 }
 

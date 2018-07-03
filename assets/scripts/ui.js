@@ -1,7 +1,17 @@
-const gameLogic = require('./game-logic.js')
+// const gameLogic = require('./game-logic.js')
 const store = require('./store.js')
+
+// console.log(gameLogic)
+// console.log(store)
 // const api = require('./api.js')
 
+let playerOneScore = 0
+let playerTwoScore = 0
+
+const resetScoreBoard = function() {
+  playerOneScore = 0
+  playerTwoScore = 0
+}
 
 const appearBoard = function() {
 
@@ -87,6 +97,10 @@ const onLoginSuccess = function(data) {
   store.user = data.user
   $("#p2s").html('')
   $("#p1s").html('')
+  resetScoreBoard()
+  console.log(playerOneScore)
+  console.log(playerTwoScore)
+  // gameLogic.resetScoreBoard()
   // api.createGame()
   }
 
@@ -176,6 +190,27 @@ const onLogoutSuccess = function() {
   // $("#logout-message").html(message)
   $(".modal-body").html(message)
   $("#myModal").modal('show')
+  // $('#theGame input').each(function(event) {
+  //   alert(event.target.id)
+  // })
+  // $('#theGame input').val("")
+  // $("#0").click(gameLogic.inputValue)
+  // debugger
+  // $("#1").click(gameLogic.inputValue)
+  // debugger
+  // $("#2").click(gameLogic.inputValue)
+  // debugger
+  // $("#3").click(gameLogic.inputValue)
+  // $("#4").click(gameLogic.inputValue)
+  // $("#5").click(gameLogic.inputValue)
+  // $("#6").click(gameLogic.inputValue)
+  // $("#7").click(gameLogic.inputValue)
+  // $("#8").click(gameLogic.inputValue)
+// console.log("hihi")
+// gameLogic.resetForm()
+// console.log(gameLogic)
+// playerOneScore = 0
+// playerTwoScore = 0
 }
 
 const logoutError = function(error) {
