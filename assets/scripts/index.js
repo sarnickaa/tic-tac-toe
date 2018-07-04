@@ -28,6 +28,5 @@ $(() => {
   $("#loginForm").on("submit", api.userLogin)
   $("#changepw").on("submit", api.userPwChange)
   $("#logoutform").on("submit", api.userLogout)
-  // $("#createButton").click(ui.createGame)
   $("#getGamesButton").click(api.getGames)
 })

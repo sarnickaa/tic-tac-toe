@@ -1,28 +1,9 @@
-// const gameLogic = require('./game-logic.js')
+
 const store = require('./store.js')
 const config = require('./config.js')
 
-// console.log(gameLogic)
-// console.log(store)
-// const api = require('./api.js')
-
-// let playerOneScore = 0
-// let playerTwoScore = 0
-
-// const resetScoreBoard = function() {
-//   playerOneScore = 0
-//   playerTwoScore = 0
-// }
-
 let playerOne = []
-// console.log(playerOne)
 let playerTwo = []
-// console.log(playerTwo)
-// let playerOneScore = 0
-// console.log(playerOneScore)
-// let playerTwoScore = 0
-// console.log(playerTwoScore)
-// let ties = 0
 let counter = 0
 let over = false
 
@@ -30,70 +11,47 @@ const inputValue = function(event) {
 
   if (counter % 2 === 0) {
     $(this).val("x")
-    // console.log(this)
     const index = parseInt(($(this).attr('id')), 10)
     playerOne.push(index)
     $(this).data("clicked", true)
-    // console.log($(this.data))
     const move = $(this).val()
-    // cells.splice(index, 1, move)
-    // console.log(cells)
     counter++
     over = false
-    // console.log(counter)
-    // console.log(playerTwo)
     preventDouble(event)
     paramaters(counter)
     let win = score(playerOne)
-    // console.log('player 1 has won ' + win)
     if (win) {
-      // playerOneScore++
       scoreUpdate1()
       over = true
       $(".game-board").off('click')
     } else if (!win && (playerOne.length + playerTwo.length === 9)) {
-      // ties++
       showDraw()
-      // ui.displayTies(ties)
       over = true
       $(".game-board").off('click')
     }
-    // ui.displayScore1(playerOneScore)
     updateGame(index, move, over)
       .then(onUpdateSuccess)
       .catch(updateError)
-    // console.log('player 1 has scored ' + playerOneScore)
-
   } else {
     $(this).val("o")
     const index = parseInt(($(this).attr('id')), 10)
     playerTwo.push(index)
     $(this).data("clicked", true)
     const move2 = $(this).val()
-    // cells.splice(index, 1, move2)
-    // console.log(index)
-    // console.log(move2)
-    // console.log(cells)
     over = false
     counter++
-    // console.log(counter)
     preventDouble(event)
     paramaters(counter)
     let win2 = score(playerTwo)
     if (win2) {
-      // console.log('player 2 has won ' + win2)
-      // playerTwoScore++
       scoreUpdate2()
       over = true
       $(".game-board").off('click')
     } else if (!win2 && (playerOne.length + playerTwo.length === 9)) {
-      // ties++
       showDraw()
-      // ui.displayTies(ties)
       over = true
       $(".game-board").off('click')
     }
-    // ui.displayScore2(playerTwoScore)
     updateGame(index, move2, over)
       .then(onUpdateSuccess)
       .catch(updateError)
@@ -109,7 +67,6 @@ const paramaters = function(counter) {
 const preventDouble = function(event) {
   if ($(event.target).data("clicked") === true) {
     $(event.target).off()
-    // $(event.target).css("cursor", "default")
   }
 }
 
@@ -158,17 +115,13 @@ const score = function(array) {
       }
     }
   }
-  console.log(counter)
   return win
 }
 
 const resetForm = function() {
-
-  // api.clearGame()
   $(".game-board:text").val("")
   $(".game-board:text").removeData("clicked")
   $(".game-board:text").off()
-  // console.log($(".game-board:text"))
   $("#0").click(inputValue)
   $("#1").click(inputValue)
   $("#2").click(inputValue)
@@ -180,19 +133,10 @@ const resetForm = function() {
   $("#8").click(inputValue)
   counter = 0
   playerOne = []
-  // console.log(playerOne)
   playerTwo = []
-  // console.log(playerTwo)
-  // console.log(counter)
-  // api.createGame()
 }
 
 const updateGame = function(index, value, over) {
-  // console.log('update ran')
-  // console.log(index)
-  // console.log(value)
-  // console.log(over)
-  // console.log(store.game.id)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -216,17 +160,11 @@ const appearBoard = function() {
 
   $(".scoreboard").css("display", "flex")
   $(".main-game").css("display", "block")
-  // $("#gameboard").css("display", "none")
-  // gameLogic.resetScoreBoard()
 }
-
-// const appearGameBoard = function () {
-//   $("#gameboard").css("display", "block")
-//   api.createGame()
-// }
 
 const scoreUpdate1 = function() {
   $('.modal-body').html('')
+  $("#myModalLabel").html('X WINS!')
   const scoreHTML = (`
           <h4>Player 1 Wins!</h4>
           <br>
@@ -237,6 +175,7 @@ const scoreUpdate1 = function() {
 
 const scoreUpdate2 = function() {
   $('.modal-body').html('')
+  $("#myModalLabel").html('O WINS!')
   const score2HTML = (`
         <h4>Player 2 Wins!</h4>
         <br>
@@ -247,6 +186,7 @@ const scoreUpdate2 = function() {
 
 const showDraw = function() {
   $('.modal-body').html('')
+  $("#myModalLabel").html('DRAW!')
   const scoreHTML = (`
         <h4>We Tied!</h4>
         <br>
@@ -255,30 +195,7 @@ const showDraw = function() {
   $("#myModal").modal('show')
 }
 
-// const displayScore1 = function(score) {
-//   const scoreHTML = (`
-//     <h3>${score}</h3>
-//     `)
-//   $("#p1s").html(scoreHTML)
-// }
-
-// const displayScore2 = function(score) {
-//   const scoreHTML = (`
-//     <h3>${score}</h3>
-//     `)
-//   $("#p2s").html(scoreHTML)
-// }
-//
-// const displayTies = function(score) {
-//   const scoreHTML = (`
-//     <h3>${score}</h3>
-//     `)
-//   $("#ts").html(scoreHTML)
-// }
-
 const onLoginSuccess = function(data) {
-  // console.log('login success')
-  // console.log(data)
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
@@ -292,17 +209,9 @@ const onLoginSuccess = function(data) {
   appearBoard()
   store.user = data.user
   resetForm()
-  // $("#p2s").html('')
-  // $("#p1s").html('')
-  // resetScoreBoard()
-  // console.log(playerOneScore)
-  // console.log(playerTwoScore)
-  // gameLogic.resetScoreBoard()
-  // api.createGame()
   }
 
 const loginError = function(data) {
-  // console.log('error')
   $('.modal-body').html('')
   $("#myModalLabel").html('ERROR')
   const scoreHTML = (`
@@ -315,8 +224,6 @@ const loginError = function(data) {
 }
 
 const onRegisterSuccess = function(data) {
-  // console.log('success')
-  // console.log(data)
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
@@ -344,7 +251,6 @@ const registerError = function(error) {
 }
 
 const onPwSuccess = function() {
-  // console.log('pw changed successfully')
   $('.modal-body').html('')
   $("#myModalLabel").html('Success!')
   const scoreHTML = (`
@@ -370,13 +276,10 @@ const pwError = function(error) {
 }
 
 const onLogoutSuccess = function() {
-  // console.log('logout success')
   $(".scoreboard").css("display", "none")
   $(".main-game").css("display", "none")
   $(".login").css("display", "block")
   $("#registerForm").css("display", "block")
-  // $("#loginForm").css("display", "block")
-  // $("#loginblock").css("display", "block")
 
   $('.modal-body').html('')
   $("#myModalLabel").html('User Logged out')
@@ -384,30 +287,8 @@ const onLogoutSuccess = function() {
   <h4>User Logged out</h4>
   <h3>Thanks For Playing TicTacToe!</h3>
   `)
-  // $("#logout-message").html(message)
   $(".modal-body").html(message)
   $("#myModal").modal('show')
-  // $('#theGame input').each(function(event) {
-  //   alert(event.target.id)
-  // })
-  // $('#theGame input').val("")
-  // $("#0").click(gameLogic.inputValue)
-  // debugger
-  // $("#1").click(gameLogic.inputValue)
-  // debugger
-  // $("#2").click(gameLogic.inputValue)
-  // debugger
-  // $("#3").click(gameLogic.inputValue)
-  // $("#4").click(gameLogic.inputValue)
-  // $("#5").click(gameLogic.inputValue)
-  // $("#6").click(gameLogic.inputValue)
-  // $("#7").click(gameLogic.inputValue)
-  // $("#8").click(gameLogic.inputValue)
-// console.log("hihi")
-// gameLogic.resetForm()
-// console.log(gameLogic)
-// playerOneScore = 0
-// playerTwoScore = 0
 }
 
 const logoutError = function(error) {
@@ -425,12 +306,7 @@ const logoutError = function(error) {
 }
 
 const onCreateSuccess = function(data) {
-  // console.log('success', data)
   store.game = data.game
-  // console.log(store.game)
-  // console.log(data.game)
-  // console.log(data.game.id)
-  // console.log(store.game.id)
   $('.modal-body').html('')
   $("#myModalLabel").html('Game Created')
   const scoreHTML = (`
@@ -457,8 +333,6 @@ const createError = function(error) {
 }
 
 const onGetSuccess = function(data) {
-  // console.log('success', data.games)
-  // console.log(data)
   $('.modal-body').html('')
   $("#myModalLabel").html('Games Retrieved')
   data.games.forEach(function(game) {
@@ -490,7 +364,7 @@ const getError = function(error) {
 }
 
 const onUpdateSuccess = function() {
-  console.log('success update')
+  // console.log('success update')
 }
 
 const updateError = function(error) {
@@ -507,10 +381,6 @@ const updateError = function(error) {
   }
 }
 
-// const onClearSuccess = function() {
-//   console.log("success")
-// }
-
 const onClearError = function () {
   console.log("fail")
 }
@@ -519,9 +389,6 @@ module.exports = {
   scoreUpdate1,
   scoreUpdate2,
   showDraw,
-  // displayScore1,
-  // displayScore2,
-  // displayTies,
   appearBoard,
   onRegisterSuccess,
   onLoginSuccess,
@@ -538,6 +405,4 @@ module.exports = {
   onUpdateSuccess,
   updateError,
   onClearError
-  // onClearSuccess
-  // appearGameBoard
 }

@@ -3,9 +3,6 @@ const store = require('./store.js')
 const ui = require('./ui.js')
 
 const register = function(data) {
-  // console.log(data)
-  // console.log(config.apiUrl)
-  // console.log('ajax request gettin ' + data)
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -14,9 +11,6 @@ const register = function(data) {
 }
 
 const login = function(data) {
-  // console.log(data)
-  // console.log(config.apiUrl)
-  // console.log('ajax login request getting ' + data)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -46,7 +40,6 @@ const logout = function() {
 }
 
 const create = function() {
-  // console.log('create game ran')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -57,7 +50,6 @@ const create = function() {
 }
 
 const getUserGames = function() {
-  // console.log('get game ran')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
@@ -68,11 +60,6 @@ const getUserGames = function() {
 }
 
 const updateGame = function(index, value, over) {
-  // console.log('update ran')
-  // console.log(index)
-  // console.log(value)
-  // console.log(over)
-  // console.log(store.game.id)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -91,41 +78,6 @@ const updateGame = function(index, value, over) {
   })
 }
 
-// const emptyGame = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: {
-//       "game": {
-//         "cell": {
-//           "index": 0,
-//           "value": "",
-//           "index": 1,
-//           "value": "",
-//           "index": 2,
-//           "value": "",
-//           "index": 3,
-//           "value": "",
-//           "index": 4,
-//           "value": "",
-//           "index": 5,
-//           "value": "",
-//           "index": 6,
-//           "value": "",
-//           "index": 7,
-//           "value": "",
-//           "index": 8,
-//           "value": ""
-//         },
-//         "over": false
-//       }
-//     }
-//   })
-// }
-
 module.exports = {
   register,
   login,
@@ -134,5 +86,4 @@ module.exports = {
   create,
   getUserGames,
   updateGame
-  // emptyGame
 }

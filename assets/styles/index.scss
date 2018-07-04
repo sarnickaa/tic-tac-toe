@@ -126,6 +126,7 @@ legend {
   margin: 10px;
   padding: 5px;
   font-size: 1em;
+  margin-top: 40px;
 }
 
 #pw-change-conf {
@@ -133,10 +134,12 @@ legend {
   margin: 10px;
   padding: 5px;
   font-size: 1em;
+  margin-top: 40px;
 }
 
 #pw-change-submit {
   margin: 10px;
+  margin-top: 40px;
 }
 
 button {
@@ -163,10 +166,4 @@ button:hover {
 
 #logoutform {
   display: inline;
-}
-
-#logout-message {
-  margin: 120px 30px 30px;
-  display: block;
-  text-align: center;
 }
