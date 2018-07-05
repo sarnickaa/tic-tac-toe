@@ -61,8 +61,8 @@ I found myself approaching each coding task in a fairly methodical way. I tested
 
 Issued that need to be resolved:
 
-* UX needs to be smoothed out. At present, the user is required to click a button if they would like their moves to be saved on the server. I have tried linking this functionality to login or reset, however, each of these options negativley affects the creation of the empty game object on the server. I would like to resolve this issue in future iterations.
-* Allow a user to declare a 'quit' state if a game is abandoned. At present, abandoned games do show an 'over' state of false - however, unless the user clicks a button to create a new game - i have no way of preventing further (valid) clicks on abandoned games.
+* I would like to refactor my code to make it as DRY & SOLID as it can be
+* I would like to re-implement my locally stored scoring functionality - to keep a running tally of player wins/ties whilst player is logged in.
 
 ## Additional Functionality
 
